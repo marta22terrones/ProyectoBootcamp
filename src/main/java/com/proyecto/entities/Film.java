@@ -1,5 +1,5 @@
 package com.proyecto.entities;
 
-public class Pelicula {
+public class Film {
     
 }

@@ -1,6 +1,6 @@
 package com.proyecto.dao;
 
 
-public interface IPeliculaDao {
+public interface IFilmDao {
     
 }
