@@ -1,5 +1,6 @@
 package com.proyecto.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,9 +35,24 @@ public class User {
     @NotEmpty(message = "The password cannot be empty")
     @Size(min = 4, max = 20, message = "The password must have between 4 and 20 characters")
     private String password;
+
+    @NotEmpty(message = "The date of birth cannot be empty")
+    private LocalDate dateBirth;
+
+    private Genre genre;
+
+    private Rol rol;
     
     private String avatar;
 
     // @ManyToMany(mappedBy = "ratings")
     // private List<Integer> ratings = new ArrayList<Integer>();
+
+    public enum Genre {
+        MAN, WOMAN, OTHER
+    }
+
+    public enum Rol {
+        ADMIN, NORMAL
+    }
 }
