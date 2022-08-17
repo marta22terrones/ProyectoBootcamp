@@ -40,8 +40,6 @@ public class User {
     private LocalDate dateBirth;
 
     private Genre genre;
-
-    private Rol rol;
     
     private String avatar;
 
@@ -52,7 +50,4 @@ public class User {
         MAN, WOMAN, OTHER
     }
 
-    public enum Rol {
-        ADMIN, NORMAL
-    }
 }
