@@ -22,8 +22,8 @@ public class FilmController {
     public String getFilms(Model model) {
 
         List<Film> films = filmService.getFilms();
-        model.addAttribute("filmsList", films);
+        model.addAttribute("filmList", films);
         
-        return "films";
+        return "filmList";
     }
 }
