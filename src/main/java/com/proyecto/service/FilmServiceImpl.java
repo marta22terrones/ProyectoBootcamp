@@ -26,7 +26,6 @@ public class FilmServiceImpl implements IFilmService {
 
     @Override
     public void delete(int filmID) {
-        filmDao.deleteById(filmID);;        
+        filmDao.deleteById(filmID);
     }
-    
 }
