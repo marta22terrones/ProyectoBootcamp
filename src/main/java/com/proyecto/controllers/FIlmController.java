@@ -13,17 +13,16 @@ import com.proyecto.service.IFilmService;
 
 @Controller
 @RequestMapping("/")
-public class FilmController {
+public class FIlmController {
 
     @Autowired
     private IFilmService filmService;
 
     @GetMapping("/filmList")
     public String getFilms(Model model) {
-
+    
         List<Film> films = filmService.getFilms();
-        model.addAttribute("filmList", films);
-        
-        return "filmList";
+        model.addAttribute("films", films);
+        return "filmsList";
     }
 }

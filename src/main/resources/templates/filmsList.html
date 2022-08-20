@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film List</title>
+</head>
+<body>
+    <h1>Film List</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th> 
+                <th>Year</th>
+                <th>Duration</th>
+                <th>Genres</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="f : ${films}">
+                <td th:text="${f.title}"></td>
+                <td th:text="${f.year}"></td>
+                <td th:text="${f.length}"></td>
+                <td th:text="${f.genres}"></td>
+                <td><a th:href="@{/details/} + ${f.id}"><button>View Details</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
