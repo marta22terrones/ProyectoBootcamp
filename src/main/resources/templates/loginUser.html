@@ -8,14 +8,14 @@
 </head>
 <body>
     <!-- El atributo action NO HACE falta ya que usaremos Thymeleaf -->
-    <form th:object="${user}" th:action="@{/createUser}" method="post" enctype="multipart/form-data">
-        <input type="text" placeholder="Nombre estudiante" th:field="*{name}" required>
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="Username" required>
         <br><br>
-        <input type="text" placeholder="Apellidos estudiante" th:field="*{lastName}" required>
+        <input type="text" placeholder="Password" required>
         <br><br>
         <!-- El for de la etiqueta label se corresponde con el id de la etiqueta select -->
-        <label for="facultad">Facultad</label>
-            <select id="facultad" th:field="*{facultad}" required>
+        <label for="genero">Facultad</label>
+            <select id="genero" required>
                 <!-- Saco una facultad recorriendo con un for each facultades -->
                 <!-- El atributo value coge el ID y el valor de la etiqueta option coge el nombre -->
                 <option value=""></option>

@@ -1,5 +1,5 @@
 package com.proyecto.controllers;
 
-public class FilmController {
+public class FIlmController {
     
 }

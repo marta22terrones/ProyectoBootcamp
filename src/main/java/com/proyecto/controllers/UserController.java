@@ -27,14 +27,15 @@ public class UserController {
     @GetMapping("/login")
     public ModelAndView loginUser(ModelMap map){
         ModelAndView mav = new ModelAndView();
-
+        
+/* 
         List<String> sex = new ArrayList<>();
         sex.add(User.Genre.MAN.toString());
         sex.add(User.Genre.WOMAN.toString());
         sex.add(User.Genre.OTHER.toString());
 
         map.addAttribute("sex", sex);
-
+*/
         mav.setViewName("loginUser");   // * Nombre del HTML donde se encuentra el Login
         return mav;
     }
