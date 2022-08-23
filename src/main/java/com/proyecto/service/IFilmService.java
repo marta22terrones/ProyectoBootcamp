@@ -9,4 +9,5 @@ public interface IFilmService {
     public Film getFilm(int filmId);
     public void save(Film film);
     public void delete(int filmId);
+    public List<Film> getFilmByString(String string);
 }

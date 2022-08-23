@@ -31,4 +31,9 @@ public class FilmServiceImpl implements IFilmService {
     public void delete(int filmID) {
         filmDao.deleteById(filmID);
     }
+
+    @Override
+    public List<Film> getFilmByString(String string) {
+        return filmDao.getFilmByString(string);
+    }
 }

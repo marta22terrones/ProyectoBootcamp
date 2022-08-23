@@ -1,6 +1,10 @@
 package com.proyecto.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,5 +28,17 @@ public class FilmController {
         mav.setViewName("details");
         mav.addObject("film", film);
         return mav;
-    } 
+    }
+
+    @GetMapping("/{title}")
+    public ResponseEntity<List<Film>> getFilmByString(@PathVariable(name = "string") String string) {
+
+        List<Film> films = filmService.getFilmByString(string);
+
+        if (films != null)
+            return new ResponseEntity<List<Film>>(films, HttpStatus.OK);
+        else
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+    }
 }
