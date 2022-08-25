@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.proyecto.dao.IFilmDao;
 import com.proyecto.entities.Film;
+import com.proyecto.entities.Genre;
 
 @Service
 public class FilmServiceImpl implements IFilmService {
@@ -32,6 +33,12 @@ public class FilmServiceImpl implements IFilmService {
     @Override
     public void delete(int filmID) {
         filmDao.deleteById(filmID);;        
+    }
+
+    @Override
+    public List<Genre> getGendres(int filmId) {
+        Film film = filmDao.findById(filmId).get();
+        return film.getGenres();
     }
     
 }

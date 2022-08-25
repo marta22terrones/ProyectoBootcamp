@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.proyecto.entities.Film;
+import com.proyecto.entities.Genre;
 import com.proyecto.service.IFilmService;
 
 @Controller
@@ -18,10 +19,10 @@ public class FIlmController {
     @Autowired
     private IFilmService filmService;
 
-    @GetMapping("/filmList")
+    @GetMapping("/catalog")
     public String getFilms(Model model) {
     
-        List<Film> films = filmService.getFilms();
+        List<Film> films = filmService.getFilms();        
         model.addAttribute("films", films);
         return "filmsList";
     }

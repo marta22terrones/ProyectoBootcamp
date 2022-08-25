@@ -7,5 +7,5 @@ import com.proyecto.entities.Film;
 
 @Repository
 public interface IFilmDao extends JpaRepository<Film, Integer> {
-    
+   
 }
