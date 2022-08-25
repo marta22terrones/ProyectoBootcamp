@@ -15,8 +15,10 @@
     <ul>
         <li th:text="${film.plot}"></li>
         <li th:text="${film.length}"></li>
-        <li th:each="${g : gendres}"></li>
-        <li th:text="${g.name}"></li>
+        <ul>
+            <li th:each="g : ${gendres}" th:text="${g.name}"></li>
+        </ul>
+     
     </ul>
     
 </body>
