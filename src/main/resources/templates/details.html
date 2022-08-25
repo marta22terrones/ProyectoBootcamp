@@ -7,14 +7,16 @@
     <title>Film details</title>
 </head>
 <body>
-    <h1 th:text="'About ' + ${film.name}"></h1>
-    <img th:src="@{'/recursos/'} + ${film.poster}" th:alt="Poster from the film">
+    <h1 th:text="'About ' + ${film.title}"></h1>
+    <!-- <img th:src="@{'/recursos/'} + ${film.poster}" th:alt="Poster from the film"> -->
+    
 
     <!-- provisional hasta que tenga datos en la bd -->
     <ul>
         <li th:text="${film.plot}"></li>
         <li th:text="${film.length}"></li>
-        <li th:text="${film.directors}"></li>
+        <li th:each="${g : gendres}"></li>
+        <li th:text="${g.name}"></li>
     </ul>
     
 </body>

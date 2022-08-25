@@ -12,21 +12,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.proyecto.entities.Film;
+import com.proyecto.entities.Genre;
 import com.proyecto.service.IFilmService;
 
 @Controller
 @RequestMapping("/")
-public class FilmController {
+public class FIlmController {
     
     @Autowired
     private IFilmService filmService;
 
-    @GetMapping("/details({id}")
+    @GetMapping("/details/{id}")
     public ModelAndView details(@PathVariable(name = "id") int id){
         Film film = filmService.getFilm(id);
+        List<Genre> gendres = filmService.getGendres(id);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("details");
         mav.addObject("film", film);
+        mav.addObject("gendres", gendres);
         return mav;
     }
 
