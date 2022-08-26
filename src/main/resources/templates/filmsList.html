@@ -12,20 +12,18 @@
     <table border="1">
         <thead>
             <tr>
+                <th>Poster</th>
                 <th>Title</th> 
                 <th>Year</th>
-                <th>Duration</th>
-                <th>Plot</th>
                 <th>Details</th>
             </tr>
         </thead>
 
         <tbody>
             <tr th:each="f : ${films}">
+                <td img th:src="@{'/images/'+${f.poster}}"></td>
                 <td th:text="${f.title}"></td>
-                <td th:text="${f.year}"></td>
-                <td th:text="${f.length}"></td>
-                <td th:text="${f.plot}"></td>          
+                <td th:text="${f.year}"></td>         
                 <td><a th:href="@{/details/} + ${f.id}"><button>View Details</button></a></td>
             </tr>
         </tbody>

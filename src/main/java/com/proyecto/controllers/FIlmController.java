@@ -19,7 +19,7 @@ public class FIlmController {
     @Autowired
     private IFilmService filmService;
 
-    @GetMapping("/catalog")
+    @GetMapping("/catalogue")
     public String getFilms(Model model) {
     
         List<Film> films = filmService.getFilms();        
