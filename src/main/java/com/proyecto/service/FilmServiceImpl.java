@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.proyecto.dao.IFilmDao;
+import com.proyecto.entities.Actor;
+import com.proyecto.entities.Director;
 import com.proyecto.entities.Film;
 import com.proyecto.entities.Genre;
 
-@Service
 public class FilmServiceImpl implements IFilmService {
 
     @Autowired
@@ -33,12 +34,6 @@ public class FilmServiceImpl implements IFilmService {
     @Override
     public void delete(int filmID) {
         filmDao.deleteById(filmID);;        
-    }
-
-    @Override
-    public List<Genre> getGendres(int filmId) {
-        Film film = filmDao.findById(filmId).get();
-        return film.getGenres();
     }
     
 }

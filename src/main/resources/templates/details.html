@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film details</title>
+</head>
+<body>
+    <h1 th:text="'About ' + ${film.title}"></h1>
+
+    <ul>
+        <li th:text="${film.plot}"></li>
+        <li th:text="${film.length} + ' minutes'"></li>
+        <ul>
+            <li th:each="g : ${gendres}" th:text="${g.name}"></li>
+            <li th:each="a : ${actors}" th:text="${a.name}"></li>
+            <li th:each="d : ${directors}" th:text="${d.name}"></li>
+        </ul>
+
+        <div class="col">
+            <img th:src="@{'/images/'+${film.poster}}"/>
+        </div>
+     
+    </ul>
+    
+</body>
+</html>
