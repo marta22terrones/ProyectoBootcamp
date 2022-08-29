@@ -18,8 +18,8 @@
         <br><br>
         <input type="password" placeholder="Enter password" id="password" required>
         <br><br>
-        <input type="password" placeholder="Repeat password" id="pass-repeat" required>
-        <br><br>
+        <!-- <input type="password" placeholder="Repeat password" id="pass-repeat" required>
+        <br><br> -->
         <div style="margin-top:15px;">
             <input style="margin-left:20px;" type="checkbox" id="mostrar_pass" title="clic para mostrar contraseña"/>
             &nbsp;&nbsp;Show Password</div>
@@ -51,7 +51,7 @@
     <script>
         const mostrar_pass =  document.querySelector("#mostrar_pass");
         const pass1 = document.querySelector("#password");
-        // const pass2 = document.querySelector("#pass-repeat");
+        const pass2 = document.querySelector("#pass-repeat");
 
         mostrar_pass.addEventListener('change', function () {
             if (mostrar_pass.checked == true ) {

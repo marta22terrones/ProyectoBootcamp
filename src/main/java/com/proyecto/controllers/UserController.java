@@ -3,6 +3,8 @@ package com.proyecto.controllers;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +45,7 @@ public class UserController {
     }
 
     @PostMapping("/createUser")
-    public String createUser(@ModelAttribute(name="username") String username, 
+    public String createUser(@ModelAttribute(name="user") User user,
                                     @RequestParam(name = "avatar", required = false) MultipartFile file) {
 
         if (!file.isEmpty()) {
@@ -53,13 +55,8 @@ public class UserController {
             try {
                 byte [] bytesImages = file.getBytes();
                 Files.write(rutaCompleta, bytesImages);
-    
-                // user.setAvatar(file.getOriginalFilename());
-    
-                // userService.saveUser(user);
 
-                User user = new User();
-                user.setUsername(username);
+                user.setAvatar(file.getOriginalFilename());
 
                 userService.saveUser(user);
 
