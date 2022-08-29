@@ -9,6 +9,10 @@
 <body>
     <h1>Film List</h1>
 
+    <a th:href="@{\login}">
+        <button style="margin: 20px" class="btn btn-secondary">Login</button>
+    </a>
+
     <table border="1">
         <thead>
             <tr>
@@ -24,9 +28,12 @@
                 <td img th:src="@{'/images/'+${f.poster}}"></td>
                 <td th:text="${f.title}"></td>
                 <td th:text="${f.year}"></td>         
-                <td><a th:href="@{/details/} + ${f.id}"><button>View Details</button></a></td>
+                <td><a th:href="@{/catalogue/} + ${f.id}"><button>View Details</button></a></td>
             </tr>
         </tbody>
     </table>
+
+ 
+
 </body>
 </html>
