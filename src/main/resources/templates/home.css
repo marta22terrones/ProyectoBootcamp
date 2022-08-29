@@ -1,0 +1,54 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 10px;
+}
+
+#mainHeader {
+
+    background: linear-gradient(to left, #8ED2D2, #FCFCD4);
+    margin-bottom: 10px;
+    border-radius: 30px 100px;
+    border-color: #324B4B;
+}
+
+#kinemathequeLogo {
+    height: 70px;
+}
+
+
+#navMenu {
+    color: #00AAAF;
+}
+
+#search {
+    position: relative;
+    width: 210px;
+}
+
+#inputSearch {
+    box-sizing: border-box;
+    color: #191919;
+    padding: 15px 15px 15px 35px;
+    width: 100%;
+}
+
+#magnifierSearch {
+    color: #1ed2b1;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#logginButton {
+    color: #00AAAF;
+
+}
+
+#signupButton {
+    background-color: #E2FFFF;
+    color: #00AAAF;
+
+}
