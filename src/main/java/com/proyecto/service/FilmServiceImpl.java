@@ -11,6 +11,7 @@ import com.proyecto.entities.Director;
 import com.proyecto.entities.Film;
 import com.proyecto.entities.Genre;
 
+@Service
 public class FilmServiceImpl implements IFilmService {
 
     @Autowired
@@ -35,5 +36,27 @@ public class FilmServiceImpl implements IFilmService {
     public void delete(int filmID) {
         filmDao.deleteById(filmID);;        
     }
-    
+
+    @Override
+    public List<Genre> getGendres(int filmId) {
+        Film film = filmDao.findById(filmId).get();
+        return film.getGenres();
+    }
+
+    @Override
+    public List<Actor> getActors(int filmId) {
+        Film film = filmDao.findById(filmId).get();
+        return film.getActors();
+    }
+
+    @Override
+    public List<Director> getDirectors(int filmId) {
+        Film film = filmDao.findById(filmId).get();
+        return film.getDirectors();
+    }
+
+    @Override
+    public List<Film> getFilmByString(String string) {
+        return filmDao.getFilmByString(string);
+    }
 }
