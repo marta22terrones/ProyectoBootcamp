@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <h1>SIGN UP</h1>
+
+    <!-- El atributo action NO HACE falta ya que usaremos Thymeleaf -->
+    <form th:object="${user}" th:action="@{/createUser}" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="Enter username" name="username" th:object="${username}" required>
+        <br><br>
+        <input type="password" placeholder="Enter password" id="password" required>
+        <br><br>
+        <input type="password" placeholder="Repeat password" id="pass-repeat" required>
+        <br><br>
+        <div style="margin-top:15px;">
+            <input style="margin-left:20px;" type="checkbox" id="mostrar_pass" title="clic para mostrar contraseña"/>
+            &nbsp;&nbsp;Show Password</div>
+        </div>
+        <!-- El for de la etiqueta label se corresponde con el id de la etiqueta select -->
+        <label for="genre">Genre</label>
+            <select id="genre" required>
+                <!-- Saco una facultad recorriendo con un for each facultades -->
+                <!-- El atributo value coge el ID y el valor de la etiqueta option coge el nombre -->
+                <option value=""></option>
+                <option>MAN</option>
+                <option>WOMAN</option>
+                <!-- <option th:each="facultad : ${facultades}" th:value="${facultad.id}" th:text="${facultad.name}"></option>                 -->
+            </select>
+        <p>Age birth</p>
+        <input type="date" id="dateBirth" required>
+        <br><br>
+        <input type="file" name="avatar" required>
+        <br><br>
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+        <br><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <a th:href="@{\catalogue}">
+        <button style="margin: 20px">Volver atrás</button>
+    </a>
+
+    <script>
+        const mostrar_pass =  document.querySelector("#mostrar_pass");
+        const pass1 = document.querySelector("#password");
+        // const pass2 = document.querySelector("#pass-repeat");
+
+        mostrar_pass.addEventListener('change', function () {
+            if (mostrar_pass.checked == true ) {
+                pass1.type = "text";
+                pass2.type = "text";
+
+            } else {
+                pass1.type= "password";
+                pass2.type = "password";
+        }
+        })
+        
+    </script>
+</body>
+</html>

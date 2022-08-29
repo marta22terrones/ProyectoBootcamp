@@ -15,13 +15,16 @@ import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Builder
+@Builder
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -39,9 +42,9 @@ public class User {
     @NotEmpty(message = "The date of birth cannot be empty")
     private LocalDate dateBirth;
 
-    private Genre genre;
+    private String genre;
 
-    private Rol rol;
+    // private Rol rol;
     
     private String avatar;
 
@@ -52,7 +55,7 @@ public class User {
         MAN, WOMAN, OTHER
     }
 
-    public enum Rol {
-        ADMIN, NORMAL
-    }
+    // public enum Rol {
+    //     ADMIN, NORMAL
+    // }
 }
