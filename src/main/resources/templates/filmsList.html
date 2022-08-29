@@ -6,22 +6,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Film List</title>
+    <link rel="icon" th:href="@{'/images/logotipo.png'}">
 
 </head>
 
-<body>
+<body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+margin: 10px;">
 
-   
+    <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
+    margin-bottom: 10px; border-radius: 30px 100px;
+    border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <img style="margin-left: 20px; margin-right: 40px; height: 70px;" th:src="@{'/images/logotipo2letras.png'}"
+                alt="Kinematheque logo">
+            <a style="color: #1A6364;" class="navbar-brand" href="#">Kinematheque</a>
+            <button style="border-radius: 30px 100px;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a style="color: #1A6364;" class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #1A6364;" class="nav-link" href="#">A - Z</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #1A6364;" class="nav-link" href="#">Best-rated</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Genres
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item" th:each="g : ${gendres}">
+                                <a th:text="${g.name}" th:href="${g.name}">
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" th:href="@{/catalogue/}">All films</a></li>
+                        </ul>
+                    </li>
 
-    <a th:href="@{\login}">
-        <button style="margin: 20px" class="btn btn-secondary">Login</button>
-    </a>
+                </ul>
+                <a th:href="@{\login}">
+                    <button
+                        style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+                        class="btn btn-secondary">Login</button>
+                </a>
+            </div>
+        </div>
+    </nav>
 
-    <input class="form-control" id="myInput" type="text" placeholder="Search">
 
-    <table border="1">
+
+    <form class="d-flex">
+        <input style="border-radius: 30px 100px;" class="form-control" id="myInput" type="text" placeholder="Search...">
+        <button style="background-color: #E2FFFF; color: #00AAAF; margin-top: 10px; border-radius: 30px 100px;"
+            class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <table class="table table-hover" style="margin: 20px; border: #1A6364, 2px;">
         <thead>
-            <tr>
+            <tr style="color: #1A6364;">
                 <th>Poster</th>
                 <th>Title</th>
                 <th>Year</th>
@@ -30,17 +82,24 @@
         </thead>
 
         <tbody id="myTable">
-            <tr th:each="f : ${films}">
-                <td img th:src="@{'/images/'+${f.poster}}"></td>
+            <tr style="color: #00AAAF; margin: 20px;" th:each="f : ${films}">
+                <td>
+                    <a th:href="@{/catalogue/} + ${f.id}">
+                        <img style="height: 120px;" th:src="@{'/images/'+ ${f.poster}}">
+                </td>
                 <td th:text="${f.title}"></td>
                 <td th:text="${f.year}"></td>
-                <td><a th:href="@{/catalogue/} + ${f.id}"><button>View Details</button></a></td>
+                <td><a th:href="@{/catalogue/} + ${f.id}"><button
+                            style="background-color: #FCFCD4; color: #00AAAF; margin-top: 10px; border-radius: 30px 100px;">View
+                            Details</button></a></td>
             </tr>
         </tbody>
     </table>
 
 
     <script th:replace="baseTemplate :: javascriptsupport"></script>
+
+
 
 </body>
 
@@ -63,5 +122,6 @@
     });
 
 </script>
+
 
 </html>
