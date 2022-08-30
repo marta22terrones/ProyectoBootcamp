@@ -31,7 +31,7 @@ margin: 10px;">
                         <a style="color: #1A6364;" class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: #1A6364;" class="nav-link" href="#">A - Z</a>
+                        <a style="color: #1A6364;" class="nav-link" th:href="@{/catalogueSort/}">A - Z</a>
                     </li>
                     <li class="nav-item">
                         <a style="color: #1A6364;" class="nav-link" href="#">Best-rated</a>
@@ -41,9 +41,9 @@ margin: 10px;">
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Genres
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item" th:each="g : ${gendres}">
-                                <a th:text="${g.name}" th:href="${g.name}">
+                        <ul  class="dropdown-menu">
+                            <li class="dropdown-item" th:each="g : ${genres}">
+                                <a style="color: #1A6364;" th:text="${g.name}" th:href="${g.name}" th:value="g.id">
                                 </a>
                             </li>
                             <li>
@@ -95,7 +95,6 @@ margin: 10px;">
             </tr>
         </tbody>
     </table>
-
 
     <script th:replace="baseTemplate :: javascriptsupport"></script>
 

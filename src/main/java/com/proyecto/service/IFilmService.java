@@ -11,6 +11,7 @@ public interface IFilmService {
     public List<Film> getFilms();
     public Film getFilm(int filmId);
     public List<Genre> getGendres(int filmId);
+    public List<Genre> getGenres();
     public List<Actor> getActors(int filmId);
     public List<Director> getDirectors(int filmId);
     public void save(Film film);

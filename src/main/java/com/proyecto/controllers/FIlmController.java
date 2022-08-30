@@ -1,6 +1,8 @@
 package com.proyecto.controllers;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,8 +28,10 @@ public class FIlmController {
     @GetMapping("/catalogue")
     public String getFilms(Model model) {
     
+        List<Genre> genres = filmService.getGenres();
         List<Film> films = filmService.getFilms();        
         model.addAttribute("films", films);
+        model.addAttribute("genres", genres);
         return "filmsList";
     }
 
@@ -46,5 +50,24 @@ public class FIlmController {
         return mav;
     }
 
+    @GetMapping("/catalogueSort")
+    public String getFilmsSort(Model model) {
+    
+        List<Genre> genres = filmService.getGenres();
+        Comparator<Film> comparador = Comparator.comparing(Film::getTitle);
+        List<Film> films = filmService.getFilms().stream().sorted(comparador).collect(Collectors.toList());        
+        model.addAttribute("films", films);
+        model.addAttribute("genres", genres);
+        return "filmsList";
+    }
+
+    // @GetMapping("/catalogueSort")
+    // public String getFilmsNotSort(Model model) {
+    
+    //     Comparator<Film> comparador = !Comparator.comparing(Film::getTitle);
+    //     List<Film> films = filmService.getFilms().stream().sorted(comparador).collect(Collectors.toList());        
+    //     model.addAttribute("films", films);
+    //     return "filmsList";
+    // }
 
 }
