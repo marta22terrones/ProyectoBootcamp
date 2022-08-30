@@ -11,9 +11,9 @@
 </head>
 
 <body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-margin: 10px;">
+margin: 10px; ">
 
-<!-- Barra de navegación -->
+    <!-- Barra de navegación -->
 
     <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
     margin-bottom: 10px; border-radius: 30px 100px;
@@ -45,9 +45,9 @@ margin: 10px;">
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Genres
                         </a>
-                        <ul  class="dropdown-menu">
+                        <ul class="dropdown-menu">
                             <li class="dropdown-item" th:each="g : ${genres}">
-                                <a style="color: #1A6364;" th:text="${g.name}" th:href="${g.name}" th:value="g.id">
+                                <a style="color: #1A6364;" th:text="${g.name}" th:href="@{'/genre/' + ${g.id}}" th:value="g.id">
                                 </a>
                             </li>
                             <li>
@@ -68,7 +68,7 @@ margin: 10px;">
         </div>
     </nav>
 
-<!-- Listado de películas -->
+    <!-- Listado de películas -->
 
     <form class="d-flex">
         <input style="border-radius: 30px 100px;" class="form-control" id="myInput" type="text" placeholder="Search...">
@@ -101,31 +101,21 @@ margin: 10px;">
         </tbody>
     </table>
 
-    <script th:replace="baseTemplate :: javascriptsupport"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <script th:replace="baseTemplate :: javascriptsupport" defer></script>
 
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 
 </body>
-
-<script>
-
-    $(document).ready(function () {
-
-        $("#myInput").on("keyup", function () {
-
-            var value = $(this).val().toLowerCase();
-
-            $("#myTable tr").filter(function () {
-
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-
-            });
-
-        });
-
-    });
-
-</script>
-
 
 </html>

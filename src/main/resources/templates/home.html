@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head th:replace="baseTemplate :: cabecera">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Film details</title>
+    <title>Home</title>
     <link rel="icon" th:href="@{'/images/logotipo.png'}">
 
 </head>
@@ -12,9 +13,9 @@
 <body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 margin: 10px;">
 
-<!-- Barra de navegación -->
+    <!-- Barra de navegación -->
 
-<nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
+    <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
 margin-bottom: 10px; border-radius: 30px 100px;
 border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
@@ -46,7 +47,7 @@ border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sti
                         </a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-item" th:each="g : ${genres}">
-                                <a style="color: #1A6364;" th:text="${g.name}" th:href="@{'/genre/' + ${g.id}}" th:value="g.id">
+                                <a style="color: #1A6364;" th:text="${g.name}" th:href="${g.name}" th:value="g.id">
                                 </a>
                             </li>
                             <li>
@@ -67,68 +68,6 @@ border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sti
         </div>
     </nav>
 
-<!-- Card para detalles -->
-<div style="margin: 20px; border-radius: 30px 100px; border-width: 5px; border-color: #00AAAF; max-width: 1000px;" class="card mb-3">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img style="max-width: 120%; border-width: 5px; border-radius: 30px 100px; margin-right: 20px; padding: 20px; " class="img-fluid" th:src="@{'/images/'+${film.poster}}"/>
-      </div>
-      <div class="col-md-8">
-        <div style="margin-left: 20px;" class="card-body">
-          <h5 style="color: #1A6364;" class="card-title" th:text="${film.title}"></h5>
-          <p style="color: #00AAAF;" class="card-text" th:text="${film.plot}"></p></p>
-          <p style="color: #00AAAF;" class="card-text" th:text="'Length: ' + ${film.length} + ' minutes'"><small class="text-muted"></small></p>
-            <ul>
-                <dt style="color: #1A6364;">Genres:</dt>
-                <dd style="color: #00AAAF;" th:each="g : ${gendres}" th:text="${g.name}"></dd>
-            </ul>
-            <br>
-            <ul>
-                <dt style="color: #1A6364;">Actors</dt>
-                <dd style="color: #00AAAF;" th:each="a : ${actors}" th:text="${a.name}"></dd>
-            </ul>
-            <br>
-            <ul>
-                <dt style="color: #1A6364;">Director/s</dt>
-                <dd style="color: #00AAAF;" th:each="d : ${directors}" th:text="${d.name}"></dd>
-            </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <!-- <h1 th:text="'About ' + ${film.title}"></h1>
-
-    <ul>
-        <li th:text="${film.plot}"></li>
-        <li th:text="${film.length} + ' minutes'"></li>
-        <br>
-        <ul>
-            <dt>Genres:</dt>
-            <dd th:each="g : ${gendres}" th:text="${g.name}"></dd>
-        </ul>
-        <br>
-        <ul>
-            <dt>Actors</dt>
-            <dd th:each="a : ${actors}" th:text="${a.name}"></dd>
-        </ul>
-        <br>
-        <ul>
-            <dt>Director/s</dt>
-            <dd th:each="d : ${directors}" th:text="${d.name}"></dd>
-        </ul>
-
-        <div class="col">
-            <img th:src="@{'/images/'+${film.poster}}"/>
-        </div>
-     
-    </ul> -->
-
-    
-
-    <a th:href="@{\catalogue}">
-        <button style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px; border-width: 3px; border-color: #1A6364" class="btn btn-secondary">Return</button>
-    </a>
     <script th:replace="baseTemplate :: javascriptsupport"></script>
 
 </body>

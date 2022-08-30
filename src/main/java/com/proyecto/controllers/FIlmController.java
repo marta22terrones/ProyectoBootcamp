@@ -41,12 +41,15 @@ public class FIlmController {
         List<Genre> gendres = filmService.getGendres(id);
         List<Actor> actors = filmService.getActors(id);
         List<Director> directors = filmService.getDirectors(id);
+        List<Genre> genres = filmService.getGenres();
+
         ModelAndView mav = new ModelAndView();
         mav.setViewName("details");
         mav.addObject("film", film);
         mav.addObject("gendres", gendres);
         mav.addObject("actors", actors);
         mav.addObject("directors", directors);
+        mav.addObject("genres", genres);
         return mav;
     }
 
@@ -60,6 +63,8 @@ public class FIlmController {
         model.addAttribute("genres", genres);
         return "filmsList";
     }
+
+
 
     // @GetMapping("/catalogueSort")
     // public String getFilmsNotSort(Model model) {

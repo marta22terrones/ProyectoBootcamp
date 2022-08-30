@@ -56,6 +56,6 @@ public class UserController {
                 e.printStackTrace();
             }
         }        
-            return "redirect:/catalogue";                                  
+            return "redirect:/signUp?exito";                                  
     }
 }
