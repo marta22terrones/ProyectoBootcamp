@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="baseTemplate :: cabecera">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="icon" th:href="@{'/images/logotipo.png'}">
+
+</head>
+<body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+margin: 10px;">
+
+    <!-- Barra de navegación -->
+
+<!-- Barra de navegación -->
+
+<nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
+margin-bottom: 10px; border-radius: 30px 100px;
+border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <img style="margin-left: 20px; margin-right: 40px; height: 70px;" th:src="@{'/images/logotipo2letras.png'}"
+            alt="Kinematheque logo">
+        <a style="color: #1A6364;" class="navbar-brand" href="#">Kinematheque</a>
+        <!-- Botón de colapso del desplegable -->
+        <button style="border-radius: 30px 100px;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a style="color: #1A6364;" class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: #1A6364;" class="nav-link" th:href="@{/catalogueSort/}">A - Z</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: #1A6364;" class="nav-link" href="#">Best-rated</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Genres
+                    </a>
+                    <ul  class="dropdown-menu">
+                        <li class="dropdown-item" th:each="g : ${genres}">
+                            <a style="color: #1A6364;" th:text="${g.name}" th:href="${g.name}" th:value="g.id">
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" th:href="@{/catalogue/}">All films</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- Botón de login -->
+            <a th:href="@{\login}">
+                <button
+                    style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+                    class="btn btn-secondary">Login</button>
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+    <div id="msg"></div>
+ 
+    <!-- Mensajes de Verificación -->
+    <div id="error" class="alert alert-danger ocultar" role="alert" style="display: none">
+        No matching passwords, please try again!
+    </div>
+    
+    <h1>SIGN UP </h1>
+    <!-- El atributo action NO HACE falta ya que usaremos Thymeleaf -->
+    <form th:object="${user}" th:action="@{/createUser}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}">  <!-- No se muestra pero nos vale para tener en cuenta el ID para hacer ALTA/MODIFICACIÓN -->
+        <label for = "username">Username</label>
+        <input type="text" id = "username" placeholder="Enter username" th:field="*{username}" required>
+        <br><br>
+        <label for = "password">Password</label>
+        <input type="password" placeholder="Enter password" th:field="*{password}" required>
+        <br><br>
+        <label for = "matchingPassword">Repeat password</label>
+        <input type="password" placeholder="Repeat password" th:field="*{matchingPassword}" required>
+        <br><br>
+        <label><input type="checkbox" id="mostrar_pass" value="first_checkbox">Show password</label><br>
+        <input type="email" id="email" th:field="*{email}" placeholder="Enter email">
+        <br><br>
+        <input type="file" name="imagen" required>
+        <br><br>
+        <input type="submit" id="btn" value="Enviar">
+    </form>
+
+    <script th:replace="baseTemplate :: javascriptsupport"></script>
+
+</body>
+
+<script>
+    const mostrar_pass =  document.querySelector("#mostrar_pass");
+    const pass1 = document.querySelector("#password");
+    const pass2 = document.querySelector("#matchingPassword");
+
+    const submit = document.querySelector("#btn");
+    const mail = document.querySelector("#email");
+    const validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+    const username = document.querySelector("#username");
+
+    const input = document.querySelector("#inputPass");
+
+    mostrar_pass.addEventListener('change', function () {
+        if (mostrar_pass.checked == true ) {
+            pass1.type = "text";
+            pass2.type = "text";
+
+        } else {
+            pass1.type= "password";
+            pass2.type = "password";
+    }
+    }); 
+
+    submit.addEventListener('click', function () {
+        if (!validEmail.test(mail.value)) {
+            alert('Email is invalid. Sorry, try again');
+            return false;
+        } 
+
+        if (pass1.value != pass2.value) {
+
+            const error = document.querySelector("#error");
+            error.style.display = "visibility"; 
+        }
+
+    });
+
+</script>
+</html>

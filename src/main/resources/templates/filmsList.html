@@ -13,13 +13,17 @@
 <body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 margin: 10px;">
 
+<!-- Barra de navegación -->
+
     <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
     margin-bottom: 10px; border-radius: 30px 100px;
     border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
+            <!-- Logo -->
             <img style="margin-left: 20px; margin-right: 40px; height: 70px;" th:src="@{'/images/logotipo2letras.png'}"
                 alt="Kinematheque logo">
             <a style="color: #1A6364;" class="navbar-brand" href="#">Kinematheque</a>
+            <!-- Botón de colapso del desplegable -->
             <button style="border-radius: 30px 100px;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -54,6 +58,7 @@ margin: 10px;">
                     </li>
 
                 </ul>
+                <!-- Botón de login -->
                 <a th:href="@{\login}">
                     <button
                         style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
@@ -63,7 +68,7 @@ margin: 10px;">
         </div>
     </nav>
 
-
+<!-- Listado de películas -->
 
     <form class="d-flex">
         <input style="border-radius: 30px 100px;" class="form-control" id="myInput" type="text" placeholder="Search...">
