@@ -61,6 +61,16 @@ public class FIlmController {
         return "filmsList";
     }
 
+    // @GetMapping("/genre/{id}")
+    // public ModelAndView filterByGenre(@req)
+
+
+
+
+
+
+
+
     // @GetMapping("/catalogueSort")
     // public String getFilmsNotSort(Model model) {
     

@@ -60,12 +60,13 @@ public class FilmServiceImpl implements IFilmService {
     }
 
     @Override
-    public List<Film> getFilmByString(String string) {
-        return filmDao.getFilmByString(string);
+    public List<Genre> getGenres() {
+        return genreDao.findAll();
     }
 
     @Override
-    public List<Genre> getGenres() {
-        return genreDao.findAll();
+    public List<Film> getFilmByString(String string) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

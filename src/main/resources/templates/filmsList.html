@@ -46,7 +46,7 @@ margin: 10px;">
                         </a>
                         <ul  class="dropdown-menu">
                             <li class="dropdown-item" th:each="g : ${genres}">
-                                <a style="color: #1A6364;" th:text="${g.name}" th:href="${g.name}" th:value="g.id">
+                                <a style="color: #1A6364;" th:text="${g.name}" th:href="@{'/genre/' + ${g.id}}" th:value="g.id">
                                 </a>
                             </li>
                             <li>
