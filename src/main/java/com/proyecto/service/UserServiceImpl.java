@@ -39,7 +39,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User save(UserRegDTO user) {
-        User userRegDTO = new User(user.getUsername(), user.getPassword(), user.getMatchingPassword(), user.getEmail(), user.getAvatar(), user.getRol());
+        User userRegDTO = new User(user.getUsername(), user.getPassword(), user.getMatchingPassword(), user.getEmail(), user.getAvatar());
         return userDao.save(userRegDTO);
     }
     

@@ -40,22 +40,19 @@ public class User {
     
     private String avatar;
 
-    @ManyToOne()
-    @JoinColumn(name = "rol_id")
-    private Rol rol;
+    private boolean enable;
 
     // @ManyToMany(mappedBy = "ratings")
     // private List<Integer> ratings = new ArrayList<Integer>();
 
     public User(String username, String password, 
-    String matchingPassword, String email, String avatar, Rol rol)  {
+    String matchingPassword, String email, String avatar)  {
         super();
         this.username = username;
         this.password = password;
         this.matchingPassword = matchingPassword;
         this.email = email;
         this.avatar = avatar;
-        this.rol = rol;
     }
 
 }
