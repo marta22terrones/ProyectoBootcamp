@@ -43,6 +43,5 @@ public class Genre implements Serializable {
 
     @ManyToMany(mappedBy = "genres")
     @NotEmpty(message = "You must have at least one film in this genre")
-    @ElementCollection(targetClass = Film.class)
     private List<Film> genreFilms = new ArrayList<Film>();
 }
