@@ -18,13 +18,16 @@ margin: 10px;">
 
     <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
 margin-bottom: 10px; border-radius: 30px 100px;
-border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+-moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <!-- Logo -->
             <a th:href="@{\home}">
                 <img style="margin-left: 20px; margin-right: 40px; height: 70px;"
                     th:src="@{'/images/logotipo2letras.png'}" alt="Kinematheque logo">
-                <a style="color: #1A6364;" class="navbar-brand" th:href="@{/home}">Kinematheque</a>
+                <a style="font-weight: bold; color: #1A6364;" class="navbar-brand"
+                    th:href="@{/home}">Kinematheque</a>
                 <!-- Botón de colapso del desplegable -->
                 <button style="border-radius: 30px 100px;" class="navbar-toggler" type="button"
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -41,14 +44,17 @@ border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sti
                             <a style="color: #1A6364;" class="nav-link" th:href="@{/catalogueSort/}">A - Z</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: #1A6364;" class="nav-link" href="#">Best-rated</a>
+                            <a style="color: #1A6364; " class="nav-link" href="#">Best-rated</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Genres
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul style="padding: 30px; border-radius: 30px 30px; background-color: #fbfbe2; border: groove;
+                            border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                            -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                            box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="dropdown-menu">
                                 <li class="dropdown-item" th:each="g : ${genres}">
                                     <a style="color: #1A6364;" th:text="${g.name}" th:href="@{'/genre/' + ${g.id}}"
                                         th:value="g.id">
@@ -65,7 +71,7 @@ border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sti
                     <!-- Botón de login -->
                     <a th:href="@{\signUp}">
                         <button
-                            style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+                            style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
                             class="btn btn-secondary">Login</button>
                     </a>
                 </div>
@@ -74,7 +80,8 @@ border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sti
 
     <!-- Carrusel -->
 
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div style="padding-bottom: 40px;" id="carouselExampleDark" class="carousel carousel-dark slide"
+        data-bs-ride="carousel">
 
         <!-- Indicators/dots -->
         <div class="carousel-indicators">
@@ -84,22 +91,31 @@ border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sti
         </div>
 
         <!-- The slideshow/carousel -->
-        <div class="carousel-inner">
+        <div style="padding-bottom: 40px;" class="carousel-inner">
             <div class="carousel-item active">
                 <a th:href="@{'/catalogue/46'}" th:value="f.id">
-                    <img style="max-width: 1000px; margin: auto;" th:src="@{'/images/midsommar-carousel.jpg'}"
-                        alt="Midsommar poster" class="d-block w-100">
+                    <img style="box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+                    box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+                max-width: 1000px; margin: auto;" th:src="@{'/images/midsommar-carousel.jpg'}" alt="Midsommar poster"
+                        class="d-block w-100">
                 </a>
             </div>
             <div class="carousel-item">
                 <a th:href="@{'/catalogue/20'}" th:value="f.id">
-                    <img style="max-width: 1000px; margin: auto;" th:src="@{'/images/benjamin-button-carousel.jpg'}"
+                    <img style="box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+                    box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+                max-width: 1000px; margin: auto;" th:src="@{'/images/benjamin-button-carousel.jpg'}"
                         alt="Benjamin Button poster" class="d-block w-100">
                 </a>
             </div>
             <div class="carousel-item">
                 <a th:href="@{'/catalogue/1'}" th:value="f.id">
-                    <img style="max-width: 1000px; margin: auto;" th:src="@{'/images/interstellar-carousel.jpg'}"
+                    <img style="box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+                    box-shadow: 15px 15px 5px 0px rgba(0,0,0,0.75);
+                max-width: 1000px; margin: auto;" th:src="@{'/images/interstellar-carousel.jpg'}"
                         alt="Interstellar poster" class="d-block w-100">
                 </a>
             </div>
@@ -121,30 +137,25 @@ border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sti
 
         <!-- The slideshow/carousel -->
         <div class="carousel-inner">
-            <h2 style="text-align: center;">GENRES</h2>
+            <h2 style="text-align: center; font-weight: bold; color: #1A6364; font-style: oblique;">GENRES</h2>
             <div class="carousel-item active">
-                <div class="card-group" style="display: flex;">
-                    <div class="card" style="width: 18rem;">
-                        <img style="max-width: 300px; margin: auto;" th:src="@{'/images/midsommar-carousel.jpg'}"
-                            alt="Midsommar poster" class="card-img-top">
-                        <div class="card-body">
-                            <p style="text-align: center;" class="card-text">DRAMA</p>
-                        </div>
+                <div class="card-group" style="display: inline-flex;">
+
+                    <div class="card" >
+                        <img style="max-width: 100%; width: 200px; margin: auto;" th:src="@{'/images/SCI-FI.PNG'}"
+                            alt="SCI-FI genre" class="card-img-top">
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <img style="max-width: 300px; margin: auto;" th:src="@{'/images/benjamin-button-carousel.jpg'}"
-                            alt="Benjamin Button poster" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">SCI-FI</p>
-                        </div>
+
+                    <div class="card" >
+                        <img style="max-width: 100%; width: 200px; margin: auto;" th:src="@{'/images/DRAMA.PNG'}"
+                            alt="DRAMA genre" class="card-img-top">
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <img style="max-width: 300px; margin: auto;" th:src="@{'/images/interstellar-carousel.jpg'}"
+
+                    <div class="card" >
+                        <img style="max-width: 100%; width: 200px; margin: auto;" th:src="@{'/images/DRAMA.PNG'}"
                             alt="Interstellar poster" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">ADVENTURES</p>
-                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

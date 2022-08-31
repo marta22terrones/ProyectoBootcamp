@@ -16,14 +16,16 @@ margin: 10px;">
     <!-- Barra de navegación -->
 
     <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
-margin-bottom: 10px; border-radius: 30px 100px;
-border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    margin-bottom: 10px; border-radius: 30px 100px;
+    border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+    -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+    box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <!-- Logo -->
             <a th:href="@{\home}">
             <img style="margin-left: 20px; margin-right: 40px; height: 70px;" th:src="@{'/images/logotipo2letras.png'}"
                 alt="Kinematheque logo">
-            <a style="color: #1A6364;" class="navbar-brand" th:href="@{/home}">Kinematheque</a>
+            <a style="font-weight: bold; color: #1A6364;" class="navbar-brand" th:href="@{/home}">Kinematheque</a>
             <!-- Botón de colapso del desplegable -->
             <button style="border-radius: 30px 100px;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,7 +48,10 @@ border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sti
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Genres
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul style="padding: 30px; border-radius: 30px 30px; background-color: #fbfbe2; border: groove;
+                        border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                        -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                        box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="dropdown-menu">
                             <li class="dropdown-item" th:each="g : ${genres}">
                                 <a style="color: #1A6364;" th:text="${g.name}" th:href="@{'/genre/' + ${g.id}}" th:value="g.id">
                                 </a>
@@ -62,7 +67,7 @@ border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sti
                 <!-- Botón de login -->
                 <a th:href="@{\signUp}">
                     <button
-                        style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+                    style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
                         class="btn btn-secondary">Login</button>
                 </a>
             </div>
