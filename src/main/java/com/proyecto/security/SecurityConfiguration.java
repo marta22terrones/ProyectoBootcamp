@@ -6,11 +6,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import com.proyecto.DTO.UserRegDTO;
+import com.proyecto.service.IUserService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     
-    // @Autowired
-    // private UserRegDTO userRegDTO;
+    @Autowired
+    private IUserService userService;
 }
