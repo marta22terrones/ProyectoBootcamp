@@ -10,7 +10,8 @@
 
 </head>
 
-<body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+<body style="background: linear-gradient(180deg, rgba(255,255,255,1) 40%, rgba(252,252,212,1) 96%);
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 margin: 10px;">
 
     <!-- Barra de navegación -->
@@ -20,109 +21,146 @@ margin-bottom: 10px; border-radius: 30px 100px;
 border-color: #324B4B;" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <!-- Logo -->
-            <img style="margin-left: 20px; margin-right: 40px; height: 70px;" th:src="@{'/images/logotipo2letras.png'}"
-                alt="Kinematheque logo">
-            <a style="color: #1A6364;" class="navbar-brand" href="#">Kinematheque</a>
-            <!-- Botón de colapso del desplegable -->
-            <button style="border-radius: 30px 100px;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a style="color: #1A6364;" class="nav-link active" aria-current="page" th:href="@{/home}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: #1A6364;" class="nav-link" th:href="@{/catalogueSort/}">A - Z</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: #1A6364;" class="nav-link" href="#">Best-rated</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Genres
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item" th:each="g : ${genres}">
-                                <a style="color: #1A6364;" th:text="${g.name}" th:href="@{'/genre/' + ${g.id}}" th:value="g.id">
-                                </a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" th:href="@{/catalogue/}">All films</a></li>
-                        </ul>
-                    </li>
+            <a th:href="@{\home}">
+                <img style="margin-left: 20px; margin-right: 40px; height: 70px;"
+                    th:src="@{'/images/logotipo2letras.png'}" alt="Kinematheque logo">
+                <a style="color: #1A6364;" class="navbar-brand" th:href="@{/home}">Kinematheque</a>
+                <!-- Botón de colapso del desplegable -->
+                <button style="border-radius: 30px 100px;" class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a style="color: #1A6364;" class="nav-link active" aria-current="page"
+                                th:href="@{/home}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #1A6364;" class="nav-link" th:href="@{/catalogueSort/}">A - Z</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #1A6364;" class="nav-link" href="#">Best-rated</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Genres
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item" th:each="g : ${genres}">
+                                    <a style="color: #1A6364;" th:text="${g.name}" th:href="@{'/genre/' + ${g.id}}"
+                                        th:value="g.id">
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" th:href="@{/catalogue/}">All films</a></li>
+                            </ul>
+                        </li>
 
-                </ul>
-                <!-- Botón de login -->
-                <a th:href="@{\login}">
-                    <button
-                        style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
-                        class="btn btn-secondary">Login</button>
-                </a>
-            </div>
+                    </ul>
+                    <!-- Botón de login -->
+                    <a th:href="@{\signUp}">
+                        <button
+                            style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+                            class="btn btn-secondary">Login</button>
+                    </a>
+                </div>
         </div>
     </nav>
 
     <!-- Carrusel -->
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
-    <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicators/dots -->
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></button>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div> -->
 
-    
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a th:href="@{'/catalogue/46'}" th:value="f.id">
+                    <img style="max-width: 1000px; margin: auto;" th:src="@{'/images/midsommar-carousel.jpg'}"
+                        alt="Midsommar poster" class="d-block w-100">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a th:href="@{'/catalogue/20'}" th:value="f.id">
+                    <img style="max-width: 1000px; margin: auto;" th:src="@{'/images/benjamin-button-carousel.jpg'}"
+                        alt="Benjamin Button poster" class="d-block w-100">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a th:href="@{'/catalogue/1'}" th:value="f.id">
+                    <img style="max-width: 1000px; margin: auto;" th:src="@{'/images/interstellar-carousel.jpg'}"
+                        alt="Interstellar poster" class="d-block w-100">
+                </a>
+            </div>
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <br><br>
+    <!-- Carrusel 2 de generos-->
+
+    <div style="margin: 10px; padding: 40px;" id="carouselExampleDark2" class="carousel carousel-dark slideshow"
+        data-bs-ride="carousel2">
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+            <h2 style="text-align: center;">GENRES</h2>
+            <div class="carousel-item active">
+                <div class="card-group" style="display: flex;">
+                    <div class="card" style="width: 18rem;">
+                        <img style="max-width: 300px; margin: auto;" th:src="@{'/images/midsommar-carousel.jpg'}"
+                            alt="Midsommar poster" class="card-img-top">
+                        <div class="card-body">
+                            <p style="text-align: center;" class="card-text">DRAMA</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img style="max-width: 300px; margin: auto;" th:src="@{'/images/benjamin-button-carousel.jpg'}"
+                            alt="Benjamin Button poster" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">SCI-FI</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img style="max-width: 300px; margin: auto;" th:src="@{'/images/interstellar-carousel.jpg'}"
+                            alt="Interstellar poster" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text">ADVENTURES</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+
     <script th:replace="baseTemplate :: javascriptsupport"></script>
 
-
-
 </body>
+
 </html>
