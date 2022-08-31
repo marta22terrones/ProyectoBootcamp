@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.proyecto.DTO.UserRegDTO;
 import com.proyecto.entities.User;
 import com.proyecto.service.IUserService;
 
@@ -28,6 +29,22 @@ public class UserController {
     
     @Autowired
     private IUserService userService;
+
+    @ModelAttribute("user")
+    public UserRegDTO retornarNuevoUsuarioRegistroDTO() {
+        return new UserRegDTO();
+    }
+
+    @GetMapping("/form")
+    public String mostrarFormularioDeRegistro() {
+        return "registro";
+    }
+
+    @PostMapping("/formPost")
+    public String registrarCuentaDeUsuario(@ModelAttribute("user") UserRegDTO registroDTO){
+        userService.save(registroDTO);
+        return "redirect:/registro?exito";
+    }
 
     @GetMapping("/signUp")
     public String loginUser(ModelMap map){  
