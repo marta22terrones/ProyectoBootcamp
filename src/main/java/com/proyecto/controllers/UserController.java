@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.proyecto.entities.Genre;
 import com.proyecto.entities.User;
+import com.proyecto.service.IFilmService;
 import com.proyecto.service.IUserService;
 
 @Controller
@@ -28,11 +30,17 @@ public class UserController {
     
     @Autowired
     private IUserService userService;
+    
+    @Autowired
+    private IFilmService filmService;
 
     @GetMapping("/signUp")
     public String loginUser(ModelMap map){  
+
+        List<Genre> genres = filmService.getGenres();
         User user = new User();
         map.addAttribute("user", user);
+        map.addAttribute("genres", genres);
         return "signUp";
     }
 

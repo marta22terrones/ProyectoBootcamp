@@ -1,5 +1,6 @@
 package com.proyecto.controllers;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,6 +18,7 @@ import com.proyecto.entities.Director;
 import com.proyecto.entities.Film;
 import com.proyecto.entities.Genre;
 import com.proyecto.service.IFilmService;
+import com.proyecto.service.IGenreService;
 
 @Controller
 @RequestMapping("/")
@@ -24,6 +26,17 @@ public class FIlmController {
     
     @Autowired
     private IFilmService filmService;
+
+    @Autowired
+    private IGenreService genreService;
+
+    @GetMapping("/home")
+    public ModelAndView showHome() {
+        List<Genre> genres = filmService.getGenres();
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("genres", genres);
+        return mav;
+    }
 
     @GetMapping("/catalogue")
     public String getFilms(Model model) {
@@ -65,14 +78,27 @@ public class FIlmController {
     }
 
 
+    @GetMapping("/genre/{id}")
 
-    // @GetMapping("/catalogueSort")
-    // public String getFilmsNotSort(Model model) {
-    
-    //     Comparator<Film> comparador = !Comparator.comparing(Film::getTitle);
-    //     List<Film> films = filmService.getFilms().stream().sorted(comparador).collect(Collectors.toList());        
-    //     model.addAttribute("films", films);
-    //     return "filmsList";
-    // }
+    public ModelAndView filterByGenre(@PathVariable(name = "id") int id){
+
+        ModelAndView mav = new ModelAndView("filmsList.html");
+        List<Genre> genres = filmService.getGenres();
+
+        int genreId = id;
+        List<Film> films = genreService.getFilms();
+        List<Film> filteredFilms = new ArrayList<>();
+
+        for (Film film : films) {
+            for (Genre genre : film.getGenres()) {
+                if(genre.getId() == genreId){
+                    filteredFilms.add(film);
+                }
+            }
+        }
+        mav.addObject("films", filteredFilms);
+        mav.addObject("genres", genres);
+        return mav;
+    }
 
 }
