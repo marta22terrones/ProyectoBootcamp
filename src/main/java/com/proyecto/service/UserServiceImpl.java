@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.proyecto.DTO.UserRegDTO;
 import com.proyecto.dao.IUserDao;
 import com.proyecto.entities.User;
 
@@ -34,6 +35,12 @@ public class UserServiceImpl implements IUserService {
     public void deleteUser(int id) {
         userDao.deleteById(id);
         
+    }
+
+    @Override
+    public User save(UserRegDTO user) {
+        User userRegDTO = new User(user.getUsername(), user.getPassword(), user.getMatchingPassword(), user.getEmail(), user.getAvatar(), user.getRol());
+        return userDao.save(userRegDTO);
     }
     
 }

@@ -2,6 +2,7 @@ package com.proyecto.service;
 
 import java.util.List;
 
+import com.proyecto.DTO.UserRegDTO;
 import com.proyecto.entities.User;
 
 /*
@@ -13,5 +14,6 @@ public interface IUserService {
     public List<User> getUsers();
     public void saveUser (User user);
     public void deleteUser (int id);
+    public User save(UserRegDTO user);
 
 }
