@@ -90,20 +90,4 @@ public class FIlmController {
         return mav;
     }
 
-
-
-
-
-
-
-
-    // @GetMapping("/catalogueSort")
-    // public String getFilmsNotSort(Model model) {
-    
-    //     Comparator<Film> comparador = !Comparator.comparing(Film::getTitle);
-    //     List<Film> films = filmService.getFilms().stream().sorted(comparador).collect(Collectors.toList());        
-    //     model.addAttribute("films", films);
-    //     return "filmsList";
-    // }
-
 }
