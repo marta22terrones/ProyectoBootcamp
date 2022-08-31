@@ -1,5 +1,6 @@
 package com.proyecto.controllers;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,6 +18,7 @@ import com.proyecto.entities.Director;
 import com.proyecto.entities.Film;
 import com.proyecto.entities.Genre;
 import com.proyecto.service.IFilmService;
+import com.proyecto.service.IGenreService;
 
 @Controller
 @RequestMapping("/")
@@ -24,6 +26,9 @@ public class FIlmController {
     
     @Autowired
     private IFilmService filmService;
+
+    @Autowired
+    private IGenreService genreService;
 
     @GetMapping("/catalogue")
     public String getFilms(Model model) {
@@ -61,8 +66,29 @@ public class FIlmController {
         return "filmsList";
     }
 
-    // @GetMapping("/genre/{id}")
-    // public ModelAndView filterByGenre(@req)
+    @GetMapping("/genre/{id}")
+    public ModelAndView filterByGenre(@PathVariable(name = "id") int id){
+        ModelAndView mav = new ModelAndView("filmsList.html");
+
+        List<Genre> genres = filmService.getGenres();
+
+        int genreId = id;
+        List<Film> films = genreService.getFilms();
+        List<Film> filteredFilms = new ArrayList<>();
+    
+        for (Film film : films) {
+            for (Genre genre : film.getGenres()) {
+                if(genre.getId() == genreId){
+                    filteredFilms.add(film);
+                }
+            }
+        }
+        
+        mav.addObject("films", filteredFilms);
+        mav.addObject("genres", genres);
+
+        return mav;
+    }
 
 
 

@@ -16,5 +16,4 @@ public interface IFilmService {
     public List<Director> getDirectors(int filmId);
     public void save(Film film);
     public void delete(int filmId);
-    public List<Film> getFilmByString(String string);
 }
