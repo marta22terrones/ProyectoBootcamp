@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.proyecto.entities.User;
 import com.proyecto.service.IUserService;
@@ -30,23 +29,15 @@ public class UserController {
     private IUserService userService;
 
     @GetMapping("/signUp")
-    public ModelAndView loginUser(ModelMap map){
-        ModelAndView mav = new ModelAndView();
-
-        List<String> genres = new ArrayList<>();
-        genres.add(User.Genre.MAN.toString());
-        genres.add(User.Genre.WOMAN.toString());
-        genres.add(User.Genre.OTHER.toString());
-
-        map.addAttribute("genres", genres);
-
-        mav.setViewName("createUser");   // * Nombre del HTML donde se encuentra el Login
-        return mav;
+    public String signUpUser(ModelMap map){  
+        User user = new User();
+        map.addAttribute("user", user);
+        return "signUp";
     }
 
     @PostMapping("/createUser")
     public String createUser(@ModelAttribute(name="user") User user,
-                                    @RequestParam(name = "avatar", required = false) MultipartFile file) {
+                                    @RequestParam(name = "imagen", required = false) MultipartFile file) {
 
         if (!file.isEmpty()) {
             String rutaAbsoluta = "C://Users/mterrone/Documents/carpetaRecursos";
@@ -64,6 +55,11 @@ public class UserController {
                 e.printStackTrace();
             }
         }        
-            return "redirect:/catalogue";                                  
+            return "redirect:/signUp?exito";                                  
+    }
+
+    @GetMapping("/login")
+    public String loginUser() {
+        return "login";
     }
 }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <div th:if="${param.exito}">
+            <div class="alert alert-info">
+                Sign up done correctly! Thank you for joining us
+            </div>
+
+        </div>
+    </div>
+    
+    <h1>SIGN UP </h1>
+    <!-- El atributo action NO HACE falta ya que usaremos Thymeleaf -->
+    <form th:object="${user}" th:action="@{/createUser}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}">  <!-- No se muestra pero nos vale para tener en cuenta el ID para hacer ALTA/MODIFICACIÓN -->
+        <label for = "username">Username</label>
+        <input type="text" id = "username" placeholder="Enter username" th:field="*{username}" required>
+        <br><br>
+        <label for = "password">Password</label>
+        <input type="password" placeholder="Enter password" th:field="*{password}" required>
+        <br><br>
+        <label for = "matchingPassword">Repeat password</label>
+        <input type="password" placeholder="Repeat password" th:field="*{matchingPassword}" required>
+        <br><br>
+        <label><input type="checkbox" id="mostrar_pass" value="first_checkbox">Show password</label><br>
+        <input type="email" id="email" th:field="*{email}" placeholder="Enter email">
+        <br><br>
+        <input type="file" name="imagen" required>
+        <br><br>
+        <input type="submit" id="btn" value="Enviar">
+        <br><br>
+        <span>Si estas ya registrado <a th:href="@{/login}">inicia sesión aquí</a></span>
+    </form>
+
+</body>
+
+<script>
+    const mostrar_pass =  document.querySelector("#mostrar_pass");
+    const pass1 = document.querySelector("#password");
+    const pass2 = document.querySelector("#matchingPassword");
+
+    const submit = document.querySelector("#btn");
+    const mail = document.querySelector("#email");
+    const validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+    const username = document.querySelector("#username");
+
+    const input = document.querySelector("#inputPass");
+
+    mostrar_pass.addEventListener('change', function () {
+        if (mostrar_pass.checked == true ) {
+            pass1.type = "text";
+            pass2.type = "text";
+
+        } else {
+            pass1.type= "password";
+            pass2.type = "password";
+    }
+    }); 
+
+    submit.addEventListener('click', function () {
+        if (!validEmail.test(mail.value)) {
+            alert('Email is invalid. Sorry, try again');
+            return false;
+        } 
+
+        if (pass1.value != pass2.value) {
+
+            const error = document.querySelector("#error");
+            error.style.display = "visibility"; 
+        }
+
+    });
+
+</script>
+</html>

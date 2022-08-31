@@ -7,5 +7,5 @@ import com.proyecto.entities.User;
 
 @Repository
 public interface IUserDao extends JpaRepository<User, Integer> {
-    
+
 }
