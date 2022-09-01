@@ -20,7 +20,8 @@
                 margin-bottom: 10px; border-radius: 30px 100px;
                 border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
                 -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
-                box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);"
+        class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <!-- Logo -->
             <a th:href="@{\home}">
@@ -133,145 +134,174 @@
 
     <h1 style="text-align: center; font-weight: bold; color: #1A6364; font-style: oblique;">GENRES</h2>
 
-<div style="margin: 20px; display: flex; place-content: center;" class="images">
-        <a th:href="@{'/genre/1'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px; 
+        <div style="margin: 20px; display: flex; place-content: center;" class="images">
+            <a th:href="@{'/genre/1'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px; 
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/SCI-FI.PNG'}" alt="SCI-FI genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/SCI-FI.PNG'}"
+                    alt="SCI-FI genre">
+            </a>
 
-        <a th:href="@{'/genre/2'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px; 
+            <a th:href="@{'/genre/2'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px; 
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/DRAMA.PNG'}" alt="DRAMA genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/DRAMA.PNG'}"
+                    alt="DRAMA genre">
+            </a>
 
 
-        <a th:href="@{'/genre/3'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/3'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/HORROR.PNG'}" alt="HORROR genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/HORROR.PNG'}"
+                    alt="HORROR genre">
+            </a>
 
 
-        <a th:href="@{'/genre/4'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/4'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/COMEDY.PNG'}" alt="COMEDY genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/COMEDY.PNG'}"
+                    alt="COMEDY genre">
+            </a>
 
 
-        <a th:href="@{'/genre/5'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px; 
+            <a th:href="@{'/genre/5'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px; 
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/THRILLER.PNG'}" alt="THRILLER genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/THRILLER.PNG'}"
+                    alt="THRILLER genre">
+            </a>
 
-    </div>
-    <div style="margin: 20px; display: flex; place-content: center;" class="images">
+        </div>
+        <div style="margin: 20px; display: flex; place-content: center;" class="images">
 
-        <a th:href="@{'/genre/6'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/6'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/CRIME.PNG'}" alt="CRIME genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/CRIME.PNG'}"
+                    alt="CRIME genre">
+            </a>
 
-        <a th:href="@{'/genre/7'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px; 
+            <a th:href="@{'/genre/7'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px; 
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/ANIMATION.PNG'}" alt="ANIMATION genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/ANIMATION.PNG'}"
+                    alt="ANIMATION genre">
+            </a>
 
-        <a th:href="@{'/genre/8'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/8'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/ACTION.PNG'}" alt="ACTION genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/ACTION.PNG'}"
+                    alt="ACTION genre">
+            </a>
 
 
-        <a th:href="@{'/genre/9'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/9'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/DOCUMENTARY.PNG'}" alt="DOCUMENTARY genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/DOCUMENTARY.PNG'}"
+                    alt="DOCUMENTARY genre">
+            </a>
 
 
-        <a th:href="@{'/genre/10'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/10'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/CLASSICAL.PNG'}" alt="CLASSICAL genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/CLASSICAL.PNG'}"
+                    alt="CLASSICAL genre">
+            </a>
 
-    </div>
+        </div>
 
-    <div style="margin: 20px; display: flex; place-content: center;" class="images">
+        <div style="margin: 20px; display: flex; place-content: center;" class="images">
 
-        <a th:href="@{'/genre/11'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/11'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/ROMANCE.PNG'}" alt="ROMANCE genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/ROMANCE.PNG'}"
+                    alt="ROMANCE genre">
+            </a>
 
 
-        <a th:href="@{'/genre/12'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/12'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/ADVENTURES.PNG'}" alt="ADVENTURES genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/ADVENTURES.PNG'}"
+                    alt="ADVENTURES genre">
+            </a>
 
-        <a th:href="@{'/genre/13'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/13'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/INDEPENDENT.PNG'}" alt="INDEPENDENT genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/INDEPENDENT.PNG'}"
+                    alt="INDEPENDENT genre">
+            </a>
 
 
-        <a th:href="@{'/genre/14'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/14'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/MUSICAL.PNG'}" alt="MUSICAL genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/MUSICAL.PNG'}"
+                    alt="MUSICAL genre">
+            </a>
 
 
-        <a th:href="@{'/genre/15'}" th:value="g.id">
-            <img style="max-width: 100%; width: 200px; margin: 25px;
+            <a th:href="@{'/genre/15'}" th:value="g.id">
+                <img style="max-width: 100%; width: 200px; margin: 25px;
                         box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
-                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);"
-                        th:src="@{'/images/HISTORICAL.PNG'}" alt="HISTORICAL genre">
-        </a>
+                        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);" th:src="@{'/images/HISTORICAL.PNG'}"
+                    alt="HISTORICAL genre">
+            </a>
 
-    </div>
+        </div>
 
-    <script th:replace="baseTemplate :: javascriptsupport"></script>
+        <script>
+
+            //Get the button:
+            mybutton = document.getElementById("myBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () { scrollFunction() };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+        </script>
+
+        <script th:replace="baseTemplate :: javascriptsupport"></script>
+
+
+        <button style="border: groove; 
+        background-color: #8ED2D2; border-radius: 30px 100px;
+        float: right; padding: 10px; margin: 20px;"
+        onclick="topFunction()" id="myBtn" title="Go to top">Go to top</button>
 
 </body>
 
