@@ -11,15 +11,17 @@
 </head>
 
 <body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-margin: 10px;">
+            margin: 10px;">
 
     <!-- Barra de navegación -->
 
     <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
-    margin-bottom: 10px; border-radius: 30px 100px;
-    border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
-    -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
-    box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                margin-bottom: 10px; border-radius: 30px 100px;
+                border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);"
+        class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+
         <div class="container-fluid">
             <!-- Logo -->
             <a th:href="@{\home}">
@@ -97,35 +99,82 @@ margin: 10px;">
     <form th:object="${user}" th:action="@{/createUser}" method="post" enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}">
         <!-- No se muestra pero nos vale para tener en cuenta el ID para hacer ALTA/MODIFICACIÓN -->
-        <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;" for="username">Username</label>
-        <input style="justify-content: end; padding: 5px; background-color: #EEFCFC; border-radius: 30px 100px;" type="text" id="username" placeholder="Enter username" th:field="*{username}" required>
+        <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;"
+                 for="username">Username</label>
+        <input style="justify-content: end; padding: 5px; background-color: #EEFCFC; border-radius: 30px 100px;" 
+                type="text" id="username" placeholder="Enter username" th:field="*{username}" required>
         <br><br>
-        <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;" for="password">Password</label>
-        <input style="justify-content: end; padding: 5px; background-color: #EEFCFC; border-radius: 30px 100px;" type="password" placeholder="Enter password" th:field="*{password}" required>
+        <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;" 
+                for="password">Password</label>
+        <input style="justify-content: end; padding: 5px; background-color: #EEFCFC; border-radius: 30px 100px;" 
+                type="password" placeholder="Enter password" th:field="*{password}" required>
         <br><br>
-        <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;" for="matchingPassword">Repeat password</label>
-        <input style="justify-content: end; padding: 5px; background-color: #EEFCFC; border-radius: 30px 100px;" type="password" placeholder="Repeat password" th:field="*{matchingPassword}" required>
-        <br><br>
-        <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;"><input type="checkbox" id="mostrar_pass" value="first_checkbox">Show password</label><br>
+        <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;" 
+                for="matchingPassword">Repeat password</label>
+        <input style="justify-content: end; padding: 5px; background-color: #EEFCFC; border-radius: 30px 100px;"
+                type="password" placeholder="Repeat password" th:field="*{matchingPassword}" required>
+                
+            <br><br>
+        <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;">
+        <input type="checkbox" id="mostrar_pass" value="first_checkbox">Show password</label><br>
         <br><br>
         <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;" for="email">E-mail</label>
         <input style="justify-content: end; margin-right: 20px; font-size: large; background-color: #EEFCFC; border-radius: 30px 100px;" type="email" id="email" th:field="*{email}" placeholder="Enter email">
-        <br><br>
-        <input style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF;"type="file" name="imagen" required>
-        <br><br>
-        <input style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px; border-width: 3px; border-color: #1A6364"
-        class="btn btn-secondary" type="submit" id="btn" value="Send">
+           
+            <br><br>
+        <input style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF;"
+                type="file" name="imagen" required>
+            
+            <br><br>
+        <input style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF;
+                    border-radius: 30px 100px; border-width: 3px; border-color: #1A6364"
+                    class="btn btn-secondary" type="submit" id="btn" value="Send">
 
         <br><br>
-
-        <span style="color: #1A6364;">If you are already registered. <button style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;" th:href="@{/login}">Please sign in</button></span>
+        <span style="color: #1A6364;">If you are already registered.
+             <button style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF;
+                            border-radius: 30px 100px;" th:href="@{/login}">Please sign in
+            </button>
+        </span>
     </form>
 </div>
 </div>
+
+<!-- Script botón go to top -->
+<script>
+
+    //Get the button:
+    mybutton = document.getElementById("btnTop");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+
     <script th:replace="baseTemplate :: javascriptsupport"></script>
+
+    <button style="border: groove; 
+                    background-color: #8ED2D2; border-radius: 30px 100px;
+                    float: right; padding: 10px; margin: 20px;"
+            onclick="topFunction()" id="btnTop" title="Go to top">Go to top
+    </button>
 
 </body>
 
+<!-- Script show password -->
 <script>
     const mostrar_pass = document.querySelector("#mostrar_pass");
     const pass1 = document.querySelector("#password");

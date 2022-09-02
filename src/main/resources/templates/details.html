@@ -111,42 +111,44 @@ box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg 
         </div>
     </div>
 
-    <!-- <h1 th:text="'About ' + ${film.title}"></h1>
-
-    <ul>
-        <li th:text="${film.plot}"></li>
-        <li th:text="${film.length} + ' minutes'"></li>
-        <br>
-        <ul>
-            <dt>Genres:</dt>
-            <dd th:each="g : ${gendres}" th:text="${g.name}"></dd>
-        </ul>
-        <br>
-        <ul>
-            <dt>Actors</dt>
-            <dd th:each="a : ${actors}" th:text="${a.name}"></dd>
-        </ul>
-        <br>
-        <ul>
-            <dt>Director/s</dt>
-            <dd th:each="d : ${directors}" th:text="${d.name}"></dd>
-        </ul>
-
-        <div class="col">
-            <img th:src="@{'/images/'+${film.poster}}"/>
-        </div>
-     
-    </ul> -->
-
-
 
     <a th:href="@{\catalogue}">
         <button
         style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
             class="btn btn-secondary">Return</button>
     </a>
+
+<!-- Script botón go to top -->
+<script>
+
+    //Get the button:
+    mybutton = document.getElementById("btnTop");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+
     <script th:replace="baseTemplate :: javascriptsupport"></script>
 
+    <button style="border: groove; 
+        background-color: #8ED2D2; border-radius: 30px 100px;
+        float: right; padding: 10px; margin: 20px;"
+        onclick="topFunction()" id="btnTop" title="Go to top">Go to top</button>
+        
 </body>
 
 </html>

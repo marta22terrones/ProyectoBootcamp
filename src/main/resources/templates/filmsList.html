@@ -11,15 +11,16 @@
 </head>
 
 <body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-margin: 10px; ">
+            margin: 10px; ">
 
     <!-- Barra de navegación -->
 
     <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
-    margin-bottom: 10px; border-radius: 30px 100px;
-    border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
-    -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
-    box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                margin-bottom: 10px; border-radius: 30px 100px;
+                border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);"
+        class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <!-- Logo -->
             <a th:href="@{\home}">
@@ -27,17 +28,18 @@ margin: 10px; ">
                     th:src="@{'/images/logotipo2letras.png'}" alt="Kinematheque logo">
                 <a style="font-weight: bold; color: #1A6364;" class="navbar-brand"
                     th:href="@{/home}">Kinematheque</a>
-                <!-- Botón de colapso del desplegable -->
+
+            <!-- Botón de colapso del desplegable -->
                 <button style="border-radius: 30px 100px;" class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a style="color: #1A6364;" class="nav-link active" aria-current="page"
-                                th:href="@{/home}">Home</a>
+                            <a style="color: #1A6364;" class="nav-link active"
+                                aria-current="page" th:href="@{/home}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a style="color: #1A6364;" class="nav-link" th:href="@{/catalogueSort/}">A - Z</a>
@@ -51,9 +53,9 @@ margin: 10px; ">
                                 Genres
                             </a>
                             <ul style="padding: 30px; border-radius: 30px 30px; background-color: #fbfbe2; border: groove;
-                            border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
-                            -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
-                            box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="dropdown-menu">
+                                        border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                                        -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                                        box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="dropdown-menu">
                                 <li class="dropdown-item" th:each="g : ${genres}">
                                     <a style="color: #1A6364;" th:text="${g.name}" th:href="@{'/genre/' + ${g.id}}"
                                         th:value="g.id">
@@ -62,16 +64,19 @@ margin: 10px; ">
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" th:href="@{/catalogue/}">All films</a></li>
+                                <li>
+                                    <a class="dropdown-item" th:href="@{/catalogue/}">All films</a>
+                                </li>
                             </ul>
                         </li>
 
                     </ul>
                     <!-- Botón de login -->
                     <a th:href="@{\signUp}">
-                        <button
-                        style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
-                            class="btn btn-secondary">Login</button>
+                        <button style="border: groove; justify-content: end; margin-right: 20px;
+                                        background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+                                class="btn btn-secondary">Login
+                        </button>
                     </a>
                 </div>
         </div>
@@ -82,7 +87,8 @@ margin: 10px; ">
     <form class="d-flex">
         <input style="border-radius: 30px 100px;" class="form-control" id="myInput" type="text" placeholder="Search...">
         <button style="background-color: #E2FFFF; color: #00AAAF; margin-top: 10px; border-radius: 30px 100px;"
-            class="btn btn-outline-success" type="submit">Search</button>
+                class="btn btn-outline-success" type="submit">Search
+        </button>
     </form>
 
     <table class="table table-hover" style="margin: 20px; border: #1A6364, 2px;">
@@ -103,17 +109,46 @@ margin: 10px; ">
                 </td>
                 <td th:text="${f.title}"></td>
                 <td th:text="${f.year}"></td>
-                <td><a th:href="@{/catalogue/} + ${f.id}"><button
-                    style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;">View
-                            Details</button></a></td>
+                <td><a th:href="@{/catalogue/} + ${f.id}">
+                    <button style="border: groove; justify-content: end; margin-right: 20px;
+                            background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;">View details
+                    </button>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
 
+    <!-- Script botón go to top -->
+<script>
+
+    //Get the button:
+    mybutton = document.getElementById("btnTop");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+
+    <!-- Import de biblioteca jquery para barra seach -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script th:replace="baseTemplate :: javascriptsupport" defer></script>
 
+    <!-- Script barra search -->
     <script>
         $(document).ready(function () {
             $("#myInput").on("keyup", function () {
@@ -125,6 +160,11 @@ margin: 10px; ">
         });
     </script>
 
+<button style="border: groove; 
+        background-color: #8ED2D2; border-radius: 30px 100px;
+        float: right; padding: 10px; margin: 20px;"
+        onclick="topFunction()" id="btnTop" title="Go to top">Go to top</button>
+        
 </body>
 
 </html>
