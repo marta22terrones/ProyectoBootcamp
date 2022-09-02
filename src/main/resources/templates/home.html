@@ -278,7 +278,7 @@
             mybutton = document.getElementById("btnTop");
 
             // When the user scrolls down 20px from the top of the document, show the button
-            window.onscroll = function () { scrollFunction() };
+            window.onscroll = "DOMContentLoaded", function () { scrollFunction() };
 
             function scrollFunction() {
                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -298,6 +298,7 @@
         <script th:replace="baseTemplate :: javascriptsupport"></script>
 
 
+        <!-- Botón go to top -->
         <button style="border: groove; 
         background-color: #8ED2D2; border-radius: 30px 100px;
         float: right; padding: 10px; margin: 20px;"

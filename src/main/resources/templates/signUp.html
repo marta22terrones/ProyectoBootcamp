@@ -164,8 +164,16 @@
     }
 </script>
 
+<!-- Botón de volver atrás -->
+<a th:href="${'javascript:history.back()'}">
+    <button
+    style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+        class="btn btn-secondary">Return</button>
+</a>
+
     <script th:replace="baseTemplate :: javascriptsupport"></script>
 
+    <!-- Botón go to top -->
     <button style="border: groove; 
                     background-color: #8ED2D2; border-radius: 30px 100px;
                     float: right; padding: 10px; margin: 20px;"
