@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,16 +33,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "The username cannot be empty")
-    // @Size(min = 4, max = 20, message = "The username must have between 4 and 20 characters")
+    @Column(nullable = false, length = 20)
     private String username;
 
-    @NotEmpty(message = "The password cannot be empty")
-    // @Size(min = 4, max = 20, message = "The password must have between 4 and 20 characters")
+    @Column(nullable = false, length = 64)
     private String password;
+    
+    @Column(nullable = false, length = 64)
     private String matchingPassword;
 
- 
+    @Column(nullable = false, unique = true, length = 45)
     private String email;
     
     private String avatar;
