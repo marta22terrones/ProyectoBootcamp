@@ -49,7 +49,7 @@ public class UserController {
                                     @RequestParam(name = "imagen", required = false) MultipartFile file) {
 
         if (!file.isEmpty()) {
-            String rutaAbsoluta = "C://Users/rsanche4/Documents/recursos/";
+            String rutaAbsoluta = "C://Users/mterrone/Documents/recursos/";
             Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + file.getOriginalFilename());       
     
             try {
