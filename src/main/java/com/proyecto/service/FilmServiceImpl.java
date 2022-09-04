@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.proyecto.dao.IFilmDao;
 import com.proyecto.dao.IGenreDao;
+import com.proyecto.dao.IRateDao;
 import com.proyecto.entities.Actor;
 import com.proyecto.entities.Director;
 import com.proyecto.entities.Film;
@@ -22,6 +23,9 @@ public class FilmServiceImpl implements IFilmService {
 
     @Autowired
     private IGenreDao genreDao;
+
+    @Autowired
+    private IRateDao rateDao;
 
     @Override
     public List<Film> getFilms() {
@@ -104,5 +108,17 @@ public class FilmServiceImpl implements IFilmService {
         }
         
         return average;
+    }
+
+    @Override
+    public List<Rate> getRates() {
+        return rateDao.findAll();
+    }
+
+    @Override
+    public void saveRate(int filmId, Rate rate) {
+        Film film = filmDao.getById(filmId);
+        List<Rate> rates = film.getRates();
+        rates.add(rate);
     }
 }

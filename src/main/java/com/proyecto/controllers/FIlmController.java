@@ -40,11 +40,15 @@ public class FIlmController {
         return mav;
     }
 
-    @GetMapping("/rate")
-    public String formRateFilm(Model model){
+    @GetMapping("/rate/{id}")
+    public ModelAndView formRateFilm(@PathVariable(name="id") int id){
+        ModelAndView mav = new ModelAndView();
         List<Genre> genres = filmService.getGenres();
-        model.addAttribute("genres", genres);
-        return "rate";
+        List<Rate> rates = filmService.getRates();
+        mav.addObject("genres", genres);
+        mav.setViewName("rate");
+        mav.addObject("rates", rates);
+        return mav;
     }
 
     @GetMapping("/catalogue")
@@ -57,13 +61,16 @@ public class FIlmController {
         return "filmsList";
     }
 
+    // * MAL ACTION FORM : /addRate/film.id : VER ENTRE HTML Y FILM CONTROLLER
     @PostMapping("/addRate/{id}")
-    public ModelAndView addRate(@PathVariable(name="id") int id) {
+    public ModelAndView addRate(@PathVariable(name="id") int id, @PathVariable(name="rate") Rate rate) {
         Film film = filmService.getFilm(id);
+        filmService.saveRate(id, rate);
         List<Genre> gendres = filmService.getGendres(id);
         List<Actor> actors = filmService.getActors(id);
         List<Director> directors = filmService.getDirectors(id);
         List<Genre> genres = filmService.getGenres();
+        List<Rate> rates = filmService.getRates();
         ModelAndView mav = new ModelAndView();
         mav.setViewName("rate");
         mav.addObject("film", film);
@@ -71,6 +78,7 @@ public class FIlmController {
         mav.addObject("actors", actors);
         mav.addObject("directors", directors);
         mav.addObject("genres", genres);
+        mav.addObject("rates", rates);
         return mav;
     }
 

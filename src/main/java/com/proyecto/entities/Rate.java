@@ -29,7 +29,7 @@ public class Rate implements Serializable {
     private int id;
     private Integer rate;
 
-    @ManyToMany(mappedBy = "genres")
+    @ManyToMany(mappedBy = "rates")
   //  @NotEmpty(message = "You must have at least one film in this genre")
     private List<Film> rateFilm = new ArrayList<Film>();
 }

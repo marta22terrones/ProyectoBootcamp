@@ -20,11 +20,11 @@
         <!-- Barra de navegación -->
     
         <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
-    margin-bottom: 10px; border-radius: 30px 100px;
-    border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
-    -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
-    box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <div class="container-fluid">
+            margin-bottom: 10px; border-radius: 30px 100px;
+            border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+            -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+            box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                    <div class="container-fluid">
                 <!-- Logo -->
                 <a th:href="@{\home}">
                     <img style="margin-left: 20px; margin-right: 40px; height: 70px;"
@@ -80,7 +80,21 @@
                     </div>
             </div>
         </nav></head>
+        <div style="margin: 120px; border-radius: 30px 100px; border-width: 5px; border-color: #00AAAF; max-width: 600px;"
+        class="card mb-3">
+        <div class="row g-0">
+            <h1 style="color: #1A6364; margin-bottom: 20px;">Rate this film!</h1>
 
+            <!-- * MAL ACTION FORM : /addRate/film.id : VER ENTRE HTML Y FILM CONTROLLER -->
+        <form th:object="${rate}" action="@{/addRate/}+${film.id}" style="align-content: center;">
+            <input style="color: #00AAAF;" type="radio" th:each="r : ${rates}" th:text="${r.rate}" th:value="${r.rate}">
+            <br><br>
+            <input style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF;
+                        border-radius: 30px 100px; border-width: 3px; border-color: #1A6364"
+                        class="btn btn-secondary" type="submit" id="btn" value="Send">
+        </form>
+        </div>
+        </div>
 
 
         <!-- Botón de volver atrás -->

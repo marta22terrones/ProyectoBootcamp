@@ -109,10 +109,11 @@ box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg 
 
                     <ul>
                         <dt style="color: #1A6364;">Average rating</dt>
-                        <dd style="color: #00AAAF;" th:text="${average} "></dd>
+                        <div><dd style="color: #00AAAF;" th:text="${average}"></dd> 
+                        <img width="20" height="20" th:src="@{'/images/star.png'}" alt="star"> </div>
                     </ul>
 
-                    <a th:href="@{\rate}">
+                    <a th:href="@{/rate/} + ${film.id}">
                     <button style="border: groove; 
                         background-color: #8ED2D2; border-radius: 30px 100px;
                         float: right; padding: 10px; margin: 20px;"
