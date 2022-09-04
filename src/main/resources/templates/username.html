@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="baseTemplate :: cabecera">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Film details</title>
+        <link rel="icon" th:href="@{'/images/logotipo.png'}">    
+</head>
+
+
+<body style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 10px;">
+
+      <!-- Barra de navegación -->
+
+      <nav style="background: linear-gradient(to left, #8ED2D2, #FCFCD4);
+      margin-bottom: 10px; border-radius: 30px 100px;
+      border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+      -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+      box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+              <div class="container-fluid">
+                  <!-- Logo -->
+                  <a th:href="@{\home}">
+                      <img style="margin-left: 20px; margin-right: 40px; height: 70px;"
+                          th:src="@{'/images/logotipo2letras.png'}" alt="Kinematheque logo">
+                      <a style="font-weight: bold; color: #1A6364;" class="navbar-brand"
+                          th:href="@{/home}">Kinematheque</a>
+                      <!-- Botón de colapso del desplegable -->
+                      <button style="border-radius: 30px 100px;" class="navbar-toggler" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                              <li class="nav-item">
+                                  <a style="color: #1A6364;" class="nav-link active" aria-current="page"
+                                      th:href="@{/home}">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a style="color: #1A6364;" class="nav-link" th:href="@{/catalogueSort/}">A - Z</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a style="color: #1A6364;" class="nav-link" href="#">Best-rated</a>
+                              </li>
+                              <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                      data-bs-toggle="dropdown" aria-expanded="false">
+                                      Genres
+                                  </a>
+                                  <ul style="padding: 30px; border-radius: 30px 30px; background-color: #fbfbe2; border: groove;
+                                  border-color: #324B4B; box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                                  -moz-box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);
+                                  box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="dropdown-menu">
+                                      <li class="dropdown-item" th:each="g : ${genres}">
+                                          <a style="color: #1A6364;" th:text="${g.name}" th:href="@{'/genre/' + ${g.id}}"
+                                              th:value="g.id">
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <hr class="dropdown-divider">
+                                      </li>
+                                      <li><a class="dropdown-item" th:href="@{/catalogue/}">All films</a></li>
+                                  </ul>
+                              </li>
+      
+                          </ul>
+                          <!-- Botón de login -->
+                          <a th:href="@{\logout}">
+                              <button
+                              style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+                                  class="btn btn-secondary">Log out</button>
+                          </a>
+                      </div>
+              </div>
+          </nav>
+<div style="margin: 20px; border-radius: 30px 100px; border-width: 5px; border-color: #00AAAF; max-width: 1000px;"
+          class="card mb-3">
+          <div class="row g-0">
+              <div class="col-md-4">
+                  <img style="max-width: 120%; border-width: 5px; border-radius: 30px 100px; margin-right: 20px; padding: 20px; "
+                      class="img-fluid" th:src="@{'/carpetaRecursos/'+${user.avatar}}" />
+              </div>
+              <div class="col-md-8">
+                  <div style="margin-left: 20px;" class="card-body">
+                      <h5 style="color: #1A6364;" class="card-title" th:text="${user.username}"></h5>
+                      <h5 style="color: #1A6364;" class="card-title" th:text="${user.email}"></h5>
+                  </div>
+              </div>
+          </div>
+          <a th:href="@{/changePassword}">
+            <button
+            style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+                class="btn btn-secondary">Change password</button>
+        </a>
+      </div>
+</body>
+</html>

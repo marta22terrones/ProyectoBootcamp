@@ -68,7 +68,7 @@ box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg 
 
                     </ul>
                     <!-- Botón de login -->
-                    <a th:href="@{\signUp}">
+                    <a th:href="@{\login}">
                         <button
                         style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
                             class="btn btn-secondary">Login</button>
@@ -106,9 +106,24 @@ box-shadow: 4px -3px 5px 0px rgba(26,99,100,1);" class="navbar navbar-expand-lg 
                         <dt style="color: #1A6364;">Director(s)</dt>
                         <dd style="color: #00AAAF;" th:each="d : ${directors}" th:text="${d.name}"></dd>
                     </ul>
+
+                    <ul>
+                        <dt style="color: #1A6364;">Average rating</dt>
+                        <dd style="color: #00AAAF;" th:text="${average} "></dd>
+                    </ul>
+
+                    <a th:href="@{\rate}">
+                    <button style="border: groove; 
+                        background-color: #8ED2D2; border-radius: 30px 100px;
+                        float: right; padding: 10px; margin: 20px;"
+                        id="btnRate" title="Go to top">Rate this film!</button>
+                    </a>
                 </div>
+                
             </div>
+            
         </div>
+        
     </div>
 
 <!-- Botón de volver atrás -->

@@ -67,7 +67,7 @@
 
                 </ul>
                 <!-- Botón de login -->
-                <a th:href="@{\signUp}">
+                <a th:href="@{\login}">
                     <button
                     style="border: groove; justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
                         class="btn btn-secondary">Login</button>
@@ -90,7 +90,7 @@
 
     <!-- Mensajes de Verificación -->
     <div id="error" class="alert alert-danger ocultar" role="alert" style="display: none">
-        No matching passwords, please try again!
+        Passwords do not match, please try again!
     </div>
 <div class="row" style="width: auto; margin: auto auto; justify-content: center;">
 <div class="card text-center" style="width: max-content; align-items: center; height: 40%; padding: 20px; margin: 20px; border-radius: 30px 100px; border-width: 5px; border-color: #00AAAF;">    
@@ -130,13 +130,17 @@
                     border-radius: 30px 100px; border-width: 3px; border-color: #1A6364"
                     class="btn btn-secondary" type="submit" id="btn" value="Send">
 
-        <br><br>
-        <span style="color: #1A6364;">If you are already registered.
-             <button style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF;
-                            border-radius: 30px 100px;" th:href="@{/login}">Please sign in
-            </button>
-        </span>
+        <br><br>      
     </form>
+
+    <span style="color: #1A6364;">If you are already registered.
+        <a th:href="@{\login}">
+            <button
+            style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF;
+                        border-radius: 30px 100px;">Please sign in</button>
+        </a>
+    </span> 
+    
 </div>
 </div>
 

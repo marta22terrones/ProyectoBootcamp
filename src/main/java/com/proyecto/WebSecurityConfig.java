@@ -47,15 +47,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-            .antMatchers("/catalogue").authenticated()      // * Aquí irá el HTML que necesite autenticación (por ejemplo, para comentar peli)
+            .antMatchers("/rate").authenticated()      // * Aquí irá el HTML que necesite autenticación (por ejemplo, para comentar peli)
             .anyRequest().permitAll()
             .and()
             .formLogin()
-                // .loginPage("/login")
-                // .permitAll()
+                // .loginPage("/login")               
                 .usernameParameter("email")
-                .defaultSuccessUrl("/home")
-                // .loginPage("/login")
+                .defaultSuccessUrl("/user")
+            .permitAll()
             .and()
             .logout().logoutSuccessUrl("/home").permitAll();
     }

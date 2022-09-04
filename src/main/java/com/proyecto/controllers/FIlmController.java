@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,6 +18,7 @@ import com.proyecto.entities.Actor;
 import com.proyecto.entities.Director;
 import com.proyecto.entities.Film;
 import com.proyecto.entities.Genre;
+import com.proyecto.entities.Rate;
 import com.proyecto.service.IFilmService;
 import com.proyecto.service.IGenreService;
 
@@ -38,6 +40,13 @@ public class FIlmController {
         return mav;
     }
 
+    @GetMapping("/rate")
+    public String formRateFilm(Model model){
+        List<Genre> genres = filmService.getGenres();
+        model.addAttribute("genres", genres);
+        return "rate";
+    }
+
     @GetMapping("/catalogue")
     public String getFilms(Model model) {
     
@@ -48,6 +57,23 @@ public class FIlmController {
         return "filmsList";
     }
 
+    @PostMapping("/addRate/{id}")
+    public ModelAndView addRate(@PathVariable(name="id") int id) {
+        Film film = filmService.getFilm(id);
+        List<Genre> gendres = filmService.getGendres(id);
+        List<Actor> actors = filmService.getActors(id);
+        List<Director> directors = filmService.getDirectors(id);
+        List<Genre> genres = filmService.getGenres();
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("rate");
+        mav.addObject("film", film);
+        mav.addObject("gendres", gendres);
+        mav.addObject("actors", actors);
+        mav.addObject("directors", directors);
+        mav.addObject("genres", genres);
+        return mav;
+    }
+
     @GetMapping("/catalogue/{id}")
     public ModelAndView details(@PathVariable(name = "id") int id){
         Film film = filmService.getFilm(id);
@@ -55,7 +81,9 @@ public class FIlmController {
         List<Actor> actors = filmService.getActors(id);
         List<Director> directors = filmService.getDirectors(id);
         List<Genre> genres = filmService.getGenres();
+        int average = filmService.getAverageRate(id);
 
+        filmService.getAverageRate(id);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("details");
         mav.addObject("film", film);
@@ -63,6 +91,7 @@ public class FIlmController {
         mav.addObject("actors", actors);
         mav.addObject("directors", directors);
         mav.addObject("genres", genres);
+        mav.addObject("average", average);
         return mav;
     }
 

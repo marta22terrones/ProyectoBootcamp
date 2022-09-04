@@ -1,5 +1,6 @@
 package com.proyecto.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import com.proyecto.entities.Actor;
 import com.proyecto.entities.Director;
 import com.proyecto.entities.Film;
 import com.proyecto.entities.Genre;
+import com.proyecto.entities.Rate;
 
 @Service
 public class FilmServiceImpl implements IFilmService {
@@ -67,5 +69,40 @@ public class FilmServiceImpl implements IFilmService {
     @Override
     public List<Genre> getGenres() {
         return genreDao.findAll();
+    }
+
+    @Override
+    public List<Rate> getRates(int filmId) {
+        Film film = filmDao.findById(filmId).get();
+        return film.getRates();
+    }
+
+    @Override
+    public int getAverageRate(int filmId) {
+        Film film = filmDao.findById(filmId).get();
+        List<Rate> rates = film.getRates();
+        List<String> ratesString = new ArrayList<>();
+       
+        for (Rate r : rates) {
+            ratesString.add(r.getRate().toString());
+        }
+
+        List<Integer> ratesInteger = new ArrayList<>();
+        for (String s : ratesString) {
+            ratesInteger.add(Integer.parseInt(s));
+        }
+        
+        int average = 0;
+        int acumulador = 0; 
+        if (!ratesInteger.isEmpty()) {
+       
+            for (Integer i: ratesInteger) {
+              acumulador = acumulador + i;
+            }
+
+            average = acumulador / (rates.size());
+        }
+        
+        return average;
     }
 }

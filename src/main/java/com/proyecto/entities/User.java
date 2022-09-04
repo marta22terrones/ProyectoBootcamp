@@ -47,6 +47,8 @@ public class User {
     
     private String avatar;
 
+    // private List<Integer> rating = new ArrayList<Integer>();
+
    //  @ManyToMany(mappedBy = "ratings")
     // private List<Integer> ratings = new ArrayList<Integer>();
 

@@ -73,6 +73,11 @@ public class Film implements Serializable {
     @ElementCollection(targetClass = Actor.class)
     private List<Actor> actors = new ArrayList<Actor>();
 
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(name = "film_rate", joinColumns = @JoinColumn(name = "film_id"), inverseJoinColumns = @JoinColumn(name = "rate_id"))
+    @ElementCollection(targetClass = Rate.class)
+    private List<Rate> rates = new ArrayList<Rate>();
+
     // @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     // @JoinTable(name = "user_ratings", joinColumns = @JoinColumn(name = "film_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     // private List<Integer> ratings = new ArrayList<Integer>();

@@ -11,8 +11,8 @@ public class imagesConfigurer implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // TODO Auto-generated method stub
         WebMvcConfigurer.super.addResourceHandlers(registry);
-        String myExternalFilePath = "file:///C:/Users/rsanche4/Documents/recursos/";
-        registry.addResourceHandler("/recursos/**").addResourceLocations(myExternalFilePath);
+        String myExternalFilePath = "file:///C:/Users/mterrone/Documents/carpetaRecursos/";
+        registry.addResourceHandler("/carpetaRecursos/**").addResourceLocations(myExternalFilePath);
         // registry.addResourceHandler("/Recursos/**").addResourceLocations("file:" + "C:\\Users\\mterrone\\Documents\\Recursos");    
         // * Asteriscos para que busque archivos en carpeta 
         // * Recursos y en subcarpetas de dicha carpeta
