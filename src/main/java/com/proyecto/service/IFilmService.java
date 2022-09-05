@@ -15,11 +15,12 @@ public interface IFilmService {
     public List<Genre> getGenres();
     public List<Rate> getRates();
     public List<Rate> getRates(int filmId);
-    public int getAverageRate (int filmId);
+    public double getAverageRate (int filmId);
     public List<Actor> getActors(int filmId);
     public List<Director> getDirectors(int filmId);
     public void save(Film film);
     public void delete(int filmId);
     public List<Film> getFilmByString(String string);
     public void saveRate(int filmId, Rate rate);
+    public List<Film> getBestRated();
 }

@@ -77,15 +77,10 @@ public class UserController {
             return "redirect:/signUp?exito";                                  
     }
 
-    @GetMapping("/login")
-    public String login(ModelMap map) {
-        List<Genre> genres = filmService.getGenres();
-        map.addAttribute("genres", genres);
-        return "login";
-    }
 
     @GetMapping("/user")
     public String showUser (ModelMap map) {
+        List<Genre> genres = filmService.getGenres();
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = "";
         if (principal instanceof UserDetails) {
@@ -98,10 +93,39 @@ public class UserController {
         // Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         // Object user= auth.getCredentials();
-        // // String username = auth.getUsername();
         User user = userService.findByEmail(username);
         map.addAttribute("user", user);
+        map.addAttribute("genres", genres);
+        map.addAttribute("id", user.getId());
         return "username";
+    }
+
+    @GetMapping("/changePassword/{id}")
+    public String changePass (ModelMap map) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = "";
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails)principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+
+        List<Genre> genres = filmService.getGenres();
+        User user = userService.findByEmail(username);
+        map.addAttribute("user", user);
+        map.addAttribute("genres", genres);
+        return "changePass";
+    }
+
+    @PostMapping("/changePasswordPOST")
+    public String change(@ModelAttribute(name="user") User user) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodedPassword1 = encoder.encode(user.getPassword());
+        String encodedPassword2 = encoder.encode(user.getMatchingPassword());
+        user.setPassword(encodedPassword1);
+        user.setMatchingPassword(encodedPassword2);
+        userService.saveUser(user);
+        return "redirect:/changePassword/"+ user.getId()+"?exito";
     }
 
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,25 +62,11 @@ public class FIlmController {
         return "filmsList";
     }
 
-    // * MAL ACTION FORM : /addRate/film.id : VER ENTRE HTML Y FILM CONTROLLER
-    @PostMapping("/addRate/{id}")
-    public ModelAndView addRate(@PathVariable(name="id") int id, @PathVariable(name="rate") Rate rate) {
-        Film film = filmService.getFilm(id);
-        filmService.saveRate(id, rate);
-        List<Genre> gendres = filmService.getGendres(id);
-        List<Actor> actors = filmService.getActors(id);
-        List<Director> directors = filmService.getDirectors(id);
-        List<Genre> genres = filmService.getGenres();
-        List<Rate> rates = filmService.getRates();
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("rate");
-        mav.addObject("film", film);
-        mav.addObject("gendres", gendres);
-        mav.addObject("actors", actors);
-        mav.addObject("directors", directors);
-        mav.addObject("genres", genres);
-        mav.addObject("rates", rates);
-        return mav;
+    @PostMapping("/addRate")
+    public String addRate() {
+        // filmService.saveRate(id, rate);
+        // return "redirect:/rate?exito";
+        return "redirect:/home";
     }
 
     @GetMapping("/catalogue/{id}")
@@ -89,7 +76,7 @@ public class FIlmController {
         List<Actor> actors = filmService.getActors(id);
         List<Director> directors = filmService.getDirectors(id);
         List<Genre> genres = filmService.getGenres();
-        int average = filmService.getAverageRate(id);
+        double average = filmService.getAverageRate(id);
 
         filmService.getAverageRate(id);
         ModelAndView mav = new ModelAndView();
@@ -114,6 +101,14 @@ public class FIlmController {
         return "filmsList";
     }
 
+    @GetMapping("/catalogueBestRated")
+    public String getFilmsRated(Model model) {    
+        List<Genre> genres = filmService.getGenres();
+        List<Film> films = filmService.getBestRated();       
+        model.addAttribute("films", films);
+        model.addAttribute("genres", genres);
+        return "filmsList";
+    }
 
     @GetMapping("/genre/{id}")
 

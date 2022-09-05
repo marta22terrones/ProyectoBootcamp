@@ -77,26 +77,18 @@ aria-label="Toggle navigation">
 </nav>
 
     <h1 style="color: #1A6364; margin-bottom: 20px;">Log in</h1>
-        <form class="form-signin" method="post" action="/login">
-            <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;"
-                 for="username">Email</label>
-            <input style="justify-content: end; padding: 5px; background-color: #EEFCFC; border-radius: 30px 100px;" 
-                type="text" id="username" name="email" placeholder="Enter email" required autofocus>
-            <br><br>
-
-            <label style="justify-content: end; font-size: large; color: #00AAAF; border-radius: 30px 100px;" 
-                for="password">Password</label>
-        <input style="justify-content: end; padding: 5px; background-color: #EEFCFC; border-radius: 30px 100px;" 
-                type="password" placeholder="Enter password" id="password" name="password" required>
-        
+    <form class="form-signin" method="post" action="/login">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <p>
+          <label for="username" class="sr-only">Username</label>
+          <input type="text" id="username" name="email" class="form-control" placeholder="Username" required autofocus>
         </p>
-      
-        <button style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF;
-        border-radius: 30px 100px; border-width: 3px; border-color: #1A6364" type="submit" id="btn">Send</button>
-        <!-- <input name="_csrf" style="justify-content: end; margin-right: 20px; background-color: #FCFCD4; color: #00AAAF;
-                    border-radius: 30px 100px; border-width: 3px; border-color: #1A6364"
-                    class="btn btn-secondary" type="submit" id="btn" value="Send"> -->
-
+        <p>
+          <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+<input name="_csrf" type="hidden" value="b43a726c-06e7-4bc9-ac83-69543ffa1084" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
 </body>
 </html>

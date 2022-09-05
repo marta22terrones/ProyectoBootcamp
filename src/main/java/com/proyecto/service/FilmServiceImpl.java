@@ -82,7 +82,7 @@ public class FilmServiceImpl implements IFilmService {
     }
 
     @Override
-    public int getAverageRate(int filmId) {
+    public double getAverageRate(int filmId) {
         Film film = filmDao.findById(filmId).get();
         List<Rate> rates = film.getRates();
         List<String> ratesString = new ArrayList<>();
@@ -96,7 +96,7 @@ public class FilmServiceImpl implements IFilmService {
             ratesInteger.add(Integer.parseInt(s));
         }
         
-        int average = 0;
+        double average = 0;
         int acumulador = 0; 
         if (!ratesInteger.isEmpty()) {
        
@@ -107,7 +107,7 @@ public class FilmServiceImpl implements IFilmService {
             average = acumulador / (rates.size());
         }
         
-        return average;
+        return Math.round(average);
     }
 
     @Override
@@ -120,5 +120,18 @@ public class FilmServiceImpl implements IFilmService {
         Film film = filmDao.getById(filmId);
         List<Rate> rates = film.getRates();
         rates.add(rate);
+    }
+
+    @Override
+    public List<Film> getBestRated() {
+        List<Film> films = filmDao.findAll();
+        List<Film> filmsBestRated = new ArrayList<>();
+        for (Film film : films) {
+            double average = getAverageRate(film.getId());
+                if (average == 5) {
+                    filmsBestRated.add(film);
+                } 
+            }    
+        return filmsBestRated;
     }
 }

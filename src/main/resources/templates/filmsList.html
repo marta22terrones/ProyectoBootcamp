@@ -45,7 +45,7 @@
                             <a style="color: #1A6364;" class="nav-link" th:href="@{/catalogueSort/}">A - Z</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: #1A6364;" class="nav-link" href="#">Best-rated</a>
+                            <a style="color: #1A6364;" class="nav-link" th:href="@{/catalogueBestRated/}">Best-rated</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -71,6 +71,15 @@
                         </li>
 
                     </ul>
+
+                  <!-- Botón de details  -->
+                  <a th:href="@{\user}">
+                    <button style="border: groove; justify-content: end; margin-right: 20px;
+                                    background-color: #FCFCD4; color: #00AAAF; border-radius: 30px 100px;"
+                            class="btn btn-secondary">View User Details
+                    </button>
+                </a>
+                    
                     <!-- Botón de login -->
                     <a th:href="@{\login}">
                         <button style="border: groove; justify-content: end; margin-right: 20px;
